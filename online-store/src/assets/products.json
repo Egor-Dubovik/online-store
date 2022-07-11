@@ -1,0 +1,243 @@
+{
+  "laptops": {
+    "ACER": { 
+      "Swift 3X": {
+        "color": ["green", "black"],
+        "year": 2018,
+        "price": 1000,
+        "oldPrice": 1300,
+        "rating": 3,
+        "image": "../../assets/images/content-img/brends/laptops/acer/swift-3X.png",
+        "ditails": ["Intel Core i5 1135G7 2400 MHz", "Intel Iris Xe Max 4 GB", "14.0'' 1920 x 1080 IPS", "60 Hz", "not touch",  "SSD 512 GB"]
+      },
+      "Swift 7": {
+        "color": ["green", "red", "black"],
+        "year": 2021,
+        "price": 3150,
+        "oldPrice": "",
+        "rating": 5,
+        "image": "../../assets/images/content-img/brends/laptops/acer/swift_7.png",
+        "ditails": ["Intel Core i7-8500Y  2600 MHz", "Intel UHD Graphics 615", "14.0'' 1920 x 1080 IPS", "90 Hz", "not touch",  "SSD 512 GB"]
+      },
+      "Swift 3": {
+        "color": ["blue", "black"],
+        "year": 2016,
+        "price": 500,
+        "oldPrice": 1200,
+        "rating": 3,
+        "image": "../../assets/images/content-img/brends/laptops/acer/swift-3.png",
+        "ditails": ["Intel Core i4 1135G7 2400 MHz", "Intel Iris Xe Max 4 GB", "14.0'' 1920 x 1080 IPS", "60 Hz", "not touch",  "SSD 512 GB"]
+      },
+      "Swift X SFX16 52G": {
+        "color": ["green", "red", "black"],
+        "year": 2021,
+        "price": 1000,
+        "oldPrice": "800",
+        "rating": 4,
+        "image": "../../assets/images/content-img/brends/laptops/acer/swift-x-sfx16-52g.png",
+        "ditails": ["Intel Core i5 SFX16 2400 MHz", "Intel Iris Max 6 GB", "14.0'' 1920 x 1080 IPS", "60 Hz", "not touch",  "SSD 512 GB"]
+      },
+      "Spin 7": {
+        "color": ["white", "black"],
+        "year": 2022,
+        "price": 1000,
+        "oldPrice": "800",
+        "rating": 4,
+        "image": "../../assets/images/content-img/brends/laptops/acer/spin-7.png",
+        "ditails": ["Intel Core i7-7Y75 3600 MHz", "Intel UHD Graphics 615", "14.0'' 1920 x 1080 IPS", "90 Hz", "not touch",  "SSD 512/1024 GB"]
+      }
+    },
+    "APPLE": { 
+      "Macbook Pro 14": {
+        "color": ["white", "black"],
+        "year": 2021,
+        "price": 3000,
+        "oldPrice": 3200,
+        "rating": 4,
+        "image": "../../assets/images/content-img/brends/apple/laptops/Macbook-Air-13.jpeg",
+        "ditails": ["Apple M1 Pro", "video card built-in", "14.2\" 3024 x 1964 IPS", "120 Hz", "not touch",  "SSD 512/1024 GB"]
+      },
+      "Macbook Pro 16": {
+        "color": ["white", "black"],
+        "year": 2022,
+        "price": 3000,
+        "oldPrice": 3200,
+        "rating": 4,
+        "image": "../../assets/images/content-img/brends/laptops/apple/Macbook-Air-16.jpeg",
+        "ditails": ["Apple M1 Pro (10)", "video card built-in", "14.2\" 3024 x 1964 IPS", "120 Hz", "not touch",  "SSD 512/1024 GB"]
+      },
+      "Macbook Air 13": {
+        "color": ["white", "black"],
+        "year": 2020,
+        "price": 4000,
+        "oldPrice": "",
+        "rating": 4,
+        "image": "../../assets/images/content-img/brends/laptops/apple/Macbook-Air-13.jpeg",
+        "ditails": ["Apple M1 Pro 3200 MHz", "video card built-in", "13.3\" 2560 x 1600 IPS", "120 Hz", "not touch",  "SSD 512 GB"]
+      }
+    },
+    "ASUS": { 
+      "ASUS ROG Strix G15": {
+        "color": ["white", "yellow", "black"],
+        "year": 2022,
+        "price": 2800,
+        "oldPrice": 3000,
+        "rating": 4,
+        "image": "../../assets/images/content-img/brends/laptops/asus/ASUS-ROG.jpeg",
+        "ditails": ["AMD Ryzen 7 4800H 2900 MHz", "video card built-in", "15.6\" 1920 x 1080 IPS", "144 Hz", "DDR4", "not touch",  "SSD 512 GB"]
+      },
+      "ASUS TUF Gaming Dash": {
+        "color": ["black"],
+        "year": 2022,
+        "price": 4200,
+        "oldPrice": "",
+        "rating": 4,
+        "image": "../../assets/images/content-img/brends/laptops/asus/Gaming-Dash.jpeg",
+        "ditails": ["Intel Core i7 11370H 3300 MHz", "NVIDIA GeForce RTX 3060", "15.6\" 1920 x 1080 IPS", "144 Hz", "DDR4", "not touch",  "SSD 512 GB"]
+      },
+      "ASUS VivoBook 14": {
+        "color": ["black"],
+        "year": 2022,
+        "price": 799,
+        "oldPrice": 999,
+        "rating": 4,
+        "image": "../../assets/images/content-img/brends/laptops/asus/VivoBook.jpeg",
+        "ditails": ["Intel Core i5 1135G7 2400 MHz", "video card built-in", "14\" 1920 x 1080 IPS", "144 Hz", "DDR4", "not touch",  "SSD 512 GB"]
+      }
+    },
+    "LENOVO": {
+      "Lenovo IdeaPad Gaming 3": {
+        "color": ["black", "red", "white", "blue"],
+        "year": 2022,
+        "price": 2500,
+        "oldPrice": "",
+        "rating": 4,
+        "image": "../../assets/images/content-img/brends/laptops/lenovo/IdeaPad.jpeg",
+        "ditails": ["AMD Ryzen 7 5800H 3200 MHz", "NVIDIA GeForce RTX 3050 Ti 4 GB", "15.6\" 1920 x 1080 IPS", "144 Hz", "DDR4", "not touch",  "SSD 512 GB"]
+      },
+      "Lenovo Legion 5 Pro": {
+        "color": ["black", "white"],
+        "year": 2022,
+        "price": 2500,
+        "oldPrice": "",
+        "rating": 4,
+        "image": "../../assets/images/content-img/brends/laptops/lenovo/Legion.jpeg",
+        "ditails": ["AMD Ryzen 5 5600H 3300 MHz", "NVIDIA GeForce RTX 3050 Ti 4 GB", "16\" 1920 x 1080 IPS", "144 Hz", "DDR4", "not touch",  "SSD 512 GB"]
+      },
+      "Lenovo IdeaPad 5 Pro": {
+        "color": ["black", "white", "blue"],
+        "year": 2022,
+        "price": 2000,
+        "oldPrice": 2500,
+        "rating": 4,
+        "image": "../../assets/images/content-img/brends/laptops/lenovo/IdeaPad-5.jpeg",
+        "ditails": ["AMD Ryzen 5 5600H 2300 MHz", "video card built-in", "14\" 1920 x 1080 IPS", "144 Hz", "DDR4", "not touch",  "SSD 512 GB"]
+      }
+    },
+    "DELL": {
+      "Dell XPS 15 9520": {
+        "color": ["black", "white"],
+        "year": 2022,
+        "price": 1500,
+        "oldPrice": "",
+        "rating": 4,
+        "image": "../../assets/images/content-img/brends/laptops/dell/XPS-15.jpeg",
+        "ditails": ["Intel Core i7 12700H 3500 MHz", "NVIDIA GeForce RTX 3050 4", "14\" 1920 x 1080 IPS", "144 Hz", "DDR4", "not touch",  "SSD 512 GB"]
+      },
+      "Dell Vostro 15": {
+        "color": ["blue", "white"],
+        "year": 2022,
+        "price": 1500,
+        "oldPrice": "",
+        "rating": 4,
+        "image": "../../assets/images/content-img/brends/laptops/dell/Vostro-15.jpeg",
+        "ditails": ["AMD Ryzen 3 3250U 2600 MHz", "video card built-in", "14\" 1920 x 1080 IPS", "144 Hz", "DDR4", "not touch",  "SSD 512 GB"]
+      },
+      "Dell Latitude 14": {
+        "color": ["blue", "white"],
+        "year": 2022,
+        "price": 1500,
+        "oldPrice": "",
+        "rating": 4,
+        "image": "../../assets/images/content-img/brends/laptops/dell/Vostro-15.jpeg",
+        "ditails": ["Intel Core i3 8145U 2100 MHz", "video card built-in", "14\" 1920 x 1080 IPS", "144 Hz", "DDR4", "not touch",  "SSD 512 GB"]
+      },
+      "Dell Alienware x15": {
+        "color": ["black", "white"],
+        "year": 2022,
+        "price": 2000,
+        "oldPrice": "",
+        "rating": 4,
+        "image": "../../assets/images/content-img/brends/laptops/dell/Alienware.jpeg",
+        "ditails": ["Intel Core i3 8145U 2100 MHz", "video card built-in", "14\" 1920 x 1080 IPS", "144 Hz", "DDR4", "not touch",  "SSD 512 GB"]
+      }
+    },
+    "HP": {
+      "HP Victus 16-e0404nw": {
+        "color": ["black", "white"],
+        "year": 2022,
+        "price": 500,
+        "oldPrice": 800,
+        "rating": 4,
+        "image": "../../assets/images/content-img/brends/laptops/hp/Victus.jpeg",
+        "ditails": ["AMD Ryzen 5 5600H 3300 MHz", "NVIDIA GeForce RTX 3050 Ti 4", "14\" 1920 x 1080 IPS", "60 Hz", "DDR4", "not touch",  "SSD 512 GB"]
+      },
+      "HP ProBook 455": {
+        "color": ["white"],
+        "year": 2022,
+        "price": 1300,
+        "oldPrice": "",
+        "rating": 3,
+        "image": "../../assets/images/content-img/brends/laptops/hp/ProBook.jpeg",
+        "ditails": ["AMD Ryzen 3 5400H 3300 MHz", "NVIDIA GeForce RTX 3050 Ti 4", "14\" 1920 x 1080 IPS", "60 Hz", "DDR4", "not touch",  "SSD 512 GB"]
+      }
+    },
+    "MSI": {
+      "MSI Thin GF63": {
+        "color": ["black", "white"],
+        "year": 2022,
+        "price": 1600,
+        "oldPrice": "",
+        "rating": 4,
+        "image": "../../assets/images/content-img/brends/laptops/msi/GF63.jpeg",
+        "ditails": ["Intel Core i5 11400H 2700 MHz", "NVIDIA GeForce RTX 3050 Ti 4", "14\" 1920 x 1080 IPS", "90 Hz", "DDR4", "not touch",  "SSD 512 GB"]
+      },
+      "MSI Raider GE76": {
+        "color": ["black", "white"],
+        "year": 2022,
+        "price": 6000,
+        "oldPrice": "",
+        "rating": 5,
+        "image": "../../assets/images/content-img/brends/laptops/msi/Raider.jpeg",
+        "ditails": ["Intel Core i9 12900HK 3800 MHz", "NVIDIA GeForce RTX 3070 Ti 4", "14\" 1920 x 1080 IPS", "144 Hz", "DDR4", "not touch",  "SSD 512 GB"]
+      }
+    },
+    "GIGABYTE": {
+      "Gigabyte G5": {
+        "color": ["black", "white"],
+        "year": 2022,
+        "price": 1600,
+        "oldPrice": 2000,
+        "rating": 5,
+        "image": "../../assets/images/content-img/brends/laptops/gigabyte/G5.jpeg",
+        "ditails": ["Intel Core i5 11400H 2700 MHz", "NVIDIA GeForce RTX 3060 Ti 4", "14\" 1920 x 1080 IPS", "90 Hz", "DDR4", "not touch",  "SSD 512 GB"]
+      },
+      "Gigabyte Aero 15 ": {
+        "color": ["black", "white"],
+        "year": 2022,
+        "price": 3000,
+        "oldPrice": "",
+        "rating": 5,
+        "image": "../../assets/images/content-img/brends/laptops/gigabyte/Aero-15.jpeg",
+        "ditails": ["Intel Core i7 11800H 2300 MHz", "NVIDIA GeForce RTX 3080 8", "14\" 1920 x 1080 IPS", "90 Hz", "DDR4", "not touch",  "SSD 512 GB"]
+      }
+    }
+  }
+}
+  
+ 
+
+
+
+
+  

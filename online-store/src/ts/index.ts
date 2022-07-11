@@ -1,5 +1,5 @@
 import '../scss/style.scss';
-import json from '../assets/fffff.json';
-import png from '../assets/images/download.png';
+import json from '../assets/products.json';
 
-console.log('HHH', json, png);
+
+console.log('HHH', json);
