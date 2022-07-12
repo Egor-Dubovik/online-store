@@ -1,9 +1,11 @@
 @import "./nullstyle";
-@import "./fonts";
+@import "./iconFonts";
+@import url(https://fonts.googleapis.com/css?family=Poppins:300,regular,500,600,700);
 
 body {
-  font-family: "CORBEL";
   background-color: rgb(213, 225, 104);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
 }
 
 .img {
@@ -12,5 +14,4 @@ body {
 }
 
 h1 {
-  font-family: "beer-money";
 }
