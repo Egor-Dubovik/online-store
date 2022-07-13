@@ -236,7 +236,6 @@
   position: relative;
   z-index: 4;
   margin-right: rem(25);
-  cursor: pointer;
 }
 .header-basket__amount-in-basket {
   position: absolute;
@@ -250,6 +249,7 @@
   border-radius: 50%;
   background-color: $blueColor;
   color: #fff;
+  cursor: pointer;
 }
 .header-basket__link {
   font-size: rem(20);
@@ -263,6 +263,7 @@
   flex-direction: column;
   align-items: center;
   padding: rem(23) 0;
+  background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.14);
   transition: all 0.3s ease 0s;
