@@ -1,4 +1,5 @@
 import '../scss/style.scss';
+import './components/slider';
 // import json from '../assets/products.json';
 import { removeClasses, toggleClasses } from './components/baseFunctions';
 
@@ -48,3 +49,4 @@ window.onload = () => {
 
   document.addEventListener('click', documentActions);
 };
+
