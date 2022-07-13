@@ -8,7 +8,7 @@
     <title>LAPTOPS STORE</title>
   </head>
   <body>
-    <div class="wraper">
+    <div class="wrapper">
       <header der class="header">
           <div class="header__top header-top">
             <div class="header__container">
@@ -70,8 +70,7 @@
                   </ul>
                 </nav>
                 <form action="#" class="header__search-form">
-                  <input autocomplete="off" type="text" placeholder="Search entiere store here..."
-                    class="header__search-input">
+                  <input class="header__search-input" name="search" autocomplete="off" type="text" placeholder="Search entiere store here...">
                     <button type="submit" class="header__search-button _icon-search"></button>
                 </form>
                 <div class="header__actions actions-header">
@@ -133,6 +132,43 @@
              </div> 
           </div> 
       </header>
+      <main></main>
+      <footer class="footer">
+        <div class="footer__container">
+          <div class="footer__subscribe subscribe">
+            <div class="subscribe__info">
+              <h1 class="subscribe__title">Sign Up To Our Newsletter.</h1>
+              <p class="subscribe__text">Be the first to hear about the latest offers.</p>
+            </div>
+            <form class="footer__form" action="#" method="get">
+              <input class="footer__form-input" type="email" name="email" placeholder="Your Email" autocomplete="off">
+              <button class="footer__form-button" type="submit">Subscribe</button>
+            </form>
+          </div>
+          <nav class="footer__navigation">
+            <ul class="footer__menu">
+              <li class="menu__item"><a class="menu__link" href="#">Laptops</a></li>
+              <li class="menu__item"><a class="menu__link" href="#">Desktop PCs</a></li>
+              <li class="menu__item"><a class="menu__link" href="#">Contact Us</a></li>
+              <li class="menu__item"><a class="menu__link" href="#">Our Deals</a></li>
+            </ul>
+          </nav>
+          <div class="footer__resources">
+            <div class="footer__networks-link">
+              <a class="footer__link _icon-instagram" href="#"></a>
+              <a class="footer__link _icon-facebook" href="#"></a>
+            </div>
+            <div class="footer__pay-methods">
+              <img class="footer__pay-methods-icon" src="./assets/images/svg/footer/american-express.svg" alt="american-express">
+              <img class="footer__pay-methods-icon" src="./assets/images/svg/footer/discover.svg" alt="discover">
+              <img class="footer__pay-methods-icon" src="./assets/images/svg/footer/maestro.svg" alt="maestro">
+              <img class="footer__pay-methods-icon" src="./assets/images/svg/footer/paypal.svg" alt="paypal">
+              <img class="footer__pay-methods-icon" src="./assets/images/svg/footer/visa.svg" alt="visa">
+            </div>
+            <p class="footer__copyright">Copyright © 2022 Shop Pty. Ltd.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   </body>
 </html>

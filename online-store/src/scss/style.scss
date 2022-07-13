@@ -33,6 +33,15 @@ body {
 }
 
 h1 {
+  @include adaptiveValue("font-size", 38, 18);
+  font-weight: 500;
+  line-height: 132.5%;
+}
+
+h2 {
+  font-size: rem(22);
+  font-weight: 600;
+  line-height: 33px;
 }
 
 .wrapper {
@@ -43,7 +52,7 @@ h1 {
   > main {
     flex: 1 1 auto;
   }
-  // Фикс для слайдеров
+  //Фикс для слайдеров
   > * {
     min-width: 0;
   }
@@ -61,3 +70,4 @@ h1 {
 }
 
 @import "./components/header";
+@import "./components/footer";
