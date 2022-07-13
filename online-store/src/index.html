@@ -9,9 +9,9 @@
   </head>
   <body>
     <div class="wraper">
-      <hea der class="header">
-        <div class="header__container">
+      <header der class="header">
           <div class="header__top header-top">
+            <div class="header__container">
             <div class="header-top__timetable">
               <div class="header-top__timetable-main">
                 <p><span>Mon-Thu:</span> 9:00 AM - 5:30 PM</p>
@@ -24,73 +24,115 @@
                     <span>We are open:</span>
                     <ul class="info-list__item-timetable timetable">
                       <li class="timetable__day"><span>Mon-Thu:</span> 9:00 AM - 5:30 PM</li>
-                      <li class="timetable__day"><span>Fr::</span> 9:00 AM - 6:00 PM</li>
+                      <li class="timetable__day"><span>Fr:</span> 9:00 AM - 6:00 PM</li>
                       <li class="timetable__day"><span>Sat:</span> 11:00 AM - 5:00 PM</li>
                     </ul>
                   </div>
                 </li>
                 <li class="info-list__item">
                   <img src="./assets/images/svg/content-info/address-mark.svg" alt="address mark">
-                  <a class="info-list__item-addres" href="#">Address: 1234 Street Adress, City Address, 1234</ф>
+                  <ul class="info-list__item-addresses">
+                    <li>Address: <a href="#">Str. Winners 12/1</a></li>
+                    <li>Address: <a href="#">Str. Kazlova 2</a></li>
+                  </ul>
                 </li>
                 <li class="info-list__item contacts-list">
-                 <div class="contacts-list__item">
+                 <p class="contacts-list__item">
                     <span class="contacts-list__item-text">Phones: </span>
                     <a class="contacts-list__item-link" href="tel: 001234 5678">(00) 1234 5678</a>
-                 </div>
-                 <div class="contacts-list__item">
+                 </p>
+                 <p class="contacts-list__item">
                     <span class="contacts-list__item-text">E-mail: </span>
                     <a class="contacts-list__item-link" href="mailto: shop@email.com">shop@email.com</a>
-                  </div>
+                  </p>
                 </li>
               </ul>
             </div>
-            <p class="header-top__location">Visit our showroom in 1234 Street Adress City Address, 1234  Contact Us</p>
+            <p class="header-top__location">Visit our showroom in Str. Winners 12/1 or in Str. Kazlova 2</p>
             <div class="header-top__contacts contacts">
-              <p class="contacts__phone">
-                <span>Call Us: </span>
+              <p class="contacts__phone">Call Us:
                 <a class="contacts__phone-link" href="tel: 001234 5678">(00) 1234 5678</a>
               </p>
               <a class="contacts__social_network _icon-instagram" href="#"></a>
               <a class="contacts__social_network _icon-facebook" href="#"></a>
             </div>
+            </div>
           </div>
           <div class="header__main">
-            <a href="#" class="header__logo"><img src="./assets/images/svg/logo.svg" alt="logo"></a>
-              <nav class="header__navigation">
-                <ul class="header__menu menu">
-                  <li class="menu__item"><a class="menu__link" href="#">Laptops</a></li>
-                  <li class="menu__item"><a class="menu__link" href="#">Desktop PCs</a></li>
-                  <li class="menu__item"><a class="menu__link" href="#">Contact Us</a></li>
-                  <li class="menu__item"><a class="menu__link menu__link_blue-border" href="#">Our Deals</a></li>
-                </ul>
-              </nav>
-              <div class="header__actions actions-header">
-                <div class="actions-header__item header-search">
-                  <form action="#" class="header-search__form">
-                    <input autocomplete="off" type="text" placeholder="Search entiere store here..."
-                      class="header-search__input">
-                      <button type="submit" class="header-search__button _icon-search"></button>
-                  </form>
-                  <button type="submit" class="header-search__button-icon">
-                    <img src="./assets/images/svg/search.svg" alt="search icon">
-                  </button>
-                </div>
-                <div class="actions-header__item header-basket">
-                  <a href="#" class="header-basket__link _icon-basket"></a>
-                  <span>1</span>
-                  <div class="header-basket__body">
-                    <ul class="header-basket__list basket-list"></ul>
-                  </div>
-                </div>
-                <a href="#" class="actions-header__item actions-header__item_user">
-                  <img src="./assets/images/profile-image.jpg" alt="avatar">
-                </a>
-                <button type="button" class="menu__icon icon-menu"><span></span></button>
+            <div class="header__container">
+              <a href="#" class="header__logo"><img src="./assets/images/svg/logo.svg" alt="logo"></a>
+                <nav class="header__navigation">
+                  <ul class="header__menu menu">
+                    <li class="menu__item"><a class="menu__link" href="#">Laptops</a></li>
+                    <li class="menu__item"><a class="menu__link" href="#">Desktop PCs</a></li>
+                    <li class="menu__item"><a class="menu__link" href="#">Contact Us</a></li>
+                    <li class="menu__item"><a class="menu__link" href="#">Our Deals</a></li>
+                  </ul>
+                </nav>
+                <form action="#" class="header__search-form">
+                  <input autocomplete="off" type="text" placeholder="Search entiere store here..."
+                    class="header__search-input">
+                    <button type="submit" class="header__search-button _icon-search"></button>
+                </form>
+                <div class="header__actions actions-header">
+                  <button type="submit" class="header-search__button"></button>
+                  <div class="actions-header__item header-basket">
+                    <a href="#" class="header-basket__link _icon-basket"></a>
+                    <span class="header-basket__amount-in-basket">1</span>
+                    <div class="header-basket__body">
+                      <h3 class="header-basket__title">My Cart</h3>
+                      <div class="header-basket__goods-amount"><span>2</span> item in cart</div>
+                      <a class="header-basket__button header-basket__button_view-cart" href="#">View or Edit Your Cart</a>
+                      <ul class="header-basket__list basket-list">
+                        <li class="basket-list__item">
+                          <p class="basket-list__item-amount"><span>1</span> x</p>
+                          <div class="basket-list__item-image-block">
+                            <img src="./assets/images/content-img/brends/laptops/apple/Macbook-Air-13.jpeg" alt="" class="basket-list__item-image">
+                          </div>
+                          <p class="basket-list__item-description">EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...</p>
+                          <div class="basket-list__item-buttons">
+                            <button class="basket-list__item-button basket-list__item-button_remove">
+                              <img src="./assets/images/svg/mycart-remove.svg" alt="icon remove carts item">
+                            </button>
+                            <button class="basket-list__item-button basket-list__item-button_edit">
+                              <img src="./assets/images/svg/mycart-edit.svg" alt="icon edit carts item">
+                            </button>
+                          </div>
+                        </li>
+                        <li class="basket-list__item">
+                          <p class="basket-list__item-amount"><span>1</span> x</p>
+                          <div class="basket-list__item-image-block">
+                            <img src="./assets/images/content-img/brends/laptops/apple/Macbook-Air-13.jpeg" alt="" class="basket-list__item-image">
+                          </div>
+                          <p class="basket-list__item-description">EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...</p>
+                          <div class="basket-list__item-buttons">
+                            <button class="basket-list__item-button basket-list__item-button_remove">
+                              <img src="./assets/images/svg/mycart-remove.svg" alt="icon remove carts item">
+                            </button>
+                            <button class="basket-list__item-button basket-list__item-button_edit">
+                              <img src="./assets/images/svg/mycart-edit.svg" alt="icon edit carts item">
+                            </button>
+                          </div>
+                        </li>
+                      </ul>
+                      <p class="header-basket__total-price">Subtotal: <span>$499.00</span></p>
+                      <div class="header-basket__pay-buttons">
+                        <a class="header-basket__button header-basket__button_go-checkout" href="#">Go to Checkout</a>
+                        <a class="header-basket__button header-basket__button_checkout-paypal" href="#">
+                          <span>Check out with</span>
+                          <img src="./assets/images/svg/mycart-paypal.svg" alt="icon paypal">
+                        </a>
+                      </div>
+                    </div>
+                  </div>       
+                  <a href="#" class="actions-header__item actions-header__item_user">
+                    <img src="./assets/images/profile-image.jpg" alt="avatar">
+                  </a>
+                  <button type="button" class="menu__icon icon-menu"><span></span></button>
               </div>
+             </div> 
           </div> 
-        </div>
-      </hea>
+      </header>
     </div>
   </body>
 </html>
