@@ -18,3 +18,33 @@ const toggleBurgerMenu = (): void => {
   removeClasses([searchForm, searchButton], '_active');
   navigationBlock.classList.remove('_hidden');
 };
+
+window.onload = () => {
+  const documentActions = (event: Event) => {
+    const targetElement = event.target as HTMLElement;
+
+    if (targetElement.closest('.icon-menu')) {
+      toggleBurgerMenu();
+    }
+
+    if (targetElement.closest('.header-search__button')) {
+      toggleInputSearch();
+    }
+
+    // Infolist events processing
+    if (targetElement.closest('.header-top__timetable-button')) {
+      infoList.classList.toggle('_active');
+    }
+
+    if (
+      infoList.classList.contains('_active') &&
+      !targetElement.closest('.header-top__info-list') &&
+      !targetElement.closest('.header-top__timetable-button')
+    ) {
+      infoList.classList.remove('_active');
+    }
+    //---------------------------------------------------------------
+  };
+
+  document.addEventListener('click', documentActions);
+};
