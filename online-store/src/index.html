@@ -155,6 +155,411 @@
               </div>
             </div>
           </section>
+          <section class="all-products">
+            <div class="all-products__container">
+              <section class="all-products__adjusting-view adjusting-view">
+                <button class="adjusting-view__button">Clear Settings</button>
+                  <select class="adjusting-view__sorting sorting" name="sorting">
+                    <option class="sorting__option" value="year ascending" selected><span>Sort By: </span>Year, ascending</option>
+                    <option class="sorting__option" value="year, descending"><span>Sort By: </span>Year, descending</option>
+                    <option class="sorting__option" value="price, ascending"><span>Sort By: </span>Price, ascending</option>
+                    <option class="sorting__option" value="price, descending"><span>Sort By: </span>Price, descending</option>
+                  </select>
+              </section>
+              <aside class="all-products__aside aside">
+                <div class="aside__filters filters">
+                  <header class="filters__header">
+                    <h4 class="filters__title">Filters</h4>
+                    <button class="filters__button" type="reset">Clear Filter</button>
+                  </header>
+                  <ul class="filters__body">
+                    <li class="filters__filter filter">
+                      <h5 class="filter__title">Brends:</h5>
+                      <select class="filter__select" name="brend" id="select">
+                        <option value="all" selected>all</option>
+                        <option value="acer">acer</option>
+                        <option value="apple">apple</option>
+                        <option value="asus">asus</option>
+                        <option value="dell">dell</option>
+                        <option value="gigabyte">gigabyte</option>
+                        <option value="hp">hp</option>
+                        <option value="lenovo">lenovo</option>
+                        <option value="msi">msi</option>
+                      </select>
+                    </li>
+                    <li class="filters__filter filter">
+                      <h5 class="filter__title">Colors:</h5>
+                      <ul class="filter__colors">
+                        <li class="filter__colors">
+                          <div class="filter__color">
+                            <input class="filter__color-input"  id="color-black" type="checkbox">
+                            <button class="filter__color-button filter__color-button_black"></button>
+                            <img class="filter__color-checked-icon" src="./assets/images/svg/checkout-done.svg" alt="icon done"></img>
+                          </div>
+                          <div class="filter__color">
+                            <input class="filter__color-input"  id="color-white" type="checkbox">
+                            <button class="filter__color-button filter__color-button_white"></button>
+                            <img class="filter__color-checked-icon" src="./assets/images/svg/checkout-done.svg" alt="icon done"></img>
+                          </div>
+                          <div class="filter__color">
+                            <input class="filter__color-input" id="color-green" type="checkbox"> 
+                            <button class="filter__color-button filter__color-button_green"></button>
+                            <img class="filter__color-checked-icon" src="./assets/images/svg/checkout-done.svg" alt="icon done"></img>
+                          </div>
+                          <div class="filter__color">
+                            <input class="filter__color-input"  id="color-yellow" type="checkbox"> 
+                            <button class="filter__color-button filter__color-button_yellow"></button>
+                            <img class="filter__color-checked-icon" src="./assets/images/svg/checkout-done.svg" alt="icon done"></img>
+                          </div>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="filters__filter filter">
+                      <h5 class="filter__title">Price:</h5>
+                      <div class="filter__slider-range filter__slider-range_price"></div>
+                    </li>
+                    <li class="filters__filter filter">
+                      <h5 class="filter__title">Position:</h5>
+                      <div class="filter__slider-range filter__slider-range_position"></div>
+                    </li>
+                    <li class="filters__filter filter filter_popular">
+                      <h5 class="filter__title">Just popular:</h5>
+                      <input class="filter__input filter__input_popular" type="checkbox">
+                    </li>
+                  </ul>
+                </div>
+                <div class="aside__advertisement">
+                  <div class="aside__advertisement-item">
+                    <a class="aside__advertisement-link" href="#">Gaming
+                      Monitors</a>
+                    <img src="./assets/images/content-img/advertisement/gaming-manitors.jpg" alt="manitors">
+                  </div>
+                  <div class="aside__advertisement-item">
+                    <a class="aside__advertisement-link" href="#">Custome Builds</a>
+                    <img src="./assets/images/content-img/advertisement/custome-builds.jpg" alt="custome-builds">
+                  </div>
+                </div>
+              </aside>
+              <section class="all-products__cards cards">
+                <div class="cards__card card">
+                  <ul class="card__container">
+                    <li class="card__availability">
+                      <img src="./assets/images/svg/check-availability.svg" alt="availability">
+                      <p>in stock</p>
+                    </li>
+                    <li class="card__image-block">
+                      <a class="card__link" href="">
+                        <img class="card__image" src="./assets/images/content-img/brends/laptops/acer/spin-7.png" alt="spin-7.png">
+                      </a>
+                    </li>
+                    <li class="card__position position">
+                      <ul class="position__stars">
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                      </ul>
+                      <p class="position__text">Reviews <span>(4)</span></p>
+                    </li>
+                    <li class="card__description">EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...</li>
+                    <li class="card__purchase-info">
+                      <div class="card__prices">
+                        <p class="card__price card__price_old">$499.00</p>
+                        <p class="card__price">$499.00</p>
+                      </div>
+                      <div class="card__add-to-basket _icon-basket"></div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="cards__card card">
+                  <ul class="card__container">
+                    <li class="card__availability">
+                      <img src="./assets/images/svg/check-availability.svg" alt="availability">
+                      <p>in stock</p>
+                    </li>
+                    <li class="card__image-block">
+                      <a class="card__link" href="">
+                        <img class="card__image" src="./assets/images/content-img/brends/laptops/acer/spin-7.png" alt="spin-7.png">
+                      </a>
+                    </li>
+                    <li class="card__position position">
+                      <ul class="position__stars">
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                      </ul>
+                      <p class="position__text">Reviews <span>(4)</span></p>
+                    </li>
+                    <li class="card__description">EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...</li>
+                    <li class="card__purchase-info">
+                      <div class="card__prices">
+                        <p class="card__price card__price_old">$499.00</p>
+                        <p class="card__price">$499.00</p>
+                      </div>
+                      <div class="card__add-to-basket _icon-basket"></div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="cards__card card">
+                  <ul class="card__container">
+                    <li class="card__availability">
+                      <img src="./assets/images/svg/check-availability.svg" alt="availability">
+                      <p>in stock</p>
+                    </li>
+                    <li class="card__image-block">
+                      <a class="card__link" href="">
+                        <img class="card__image" src="./assets/images/content-img/brends/laptops/acer/spin-7.png" alt="spin-7.png">
+                      </a>
+                    </li>
+                    <li class="card__position position">
+                      <ul class="position__stars">
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                      </ul>
+                      <p class="position__text">Reviews <span>(4)</span></p>
+                    </li>
+                    <li class="card__description">EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...</li>
+                    <li class="card__purchase-info">
+                      <div class="card__prices">
+                        <p class="card__price card__price_old">$499.00</p>
+                        <p class="card__price">$499.00</p>
+                      </div>
+                      <div class="card__add-to-basket _icon-basket"></div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="cards__card card">
+                  <ul class="card__container">
+                    <li class="card__availability">
+                      <img src="./assets/images/svg/check-availability.svg" alt="availability">
+                      <p>in stock</p>
+                    </li>
+                    <li class="card__image-block">
+                      <a class="card__link" href="">
+                        <img class="card__image" src="./assets/images/content-img/brends/laptops/acer/spin-7.png" alt="spin-7.png">
+                      </a>
+                    </li>
+                    <li class="card__position position">
+                      <ul class="position__stars">
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                      </ul>
+                      <p class="position__text">Reviews <span>(4)</span></p>
+                    </li>
+                    <li class="card__description">EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...</li>
+                    <li class="card__purchase-info">
+                      <div class="card__prices">
+                        <p class="card__price card__price_old">$499.00</p>
+                        <p class="card__price">$499.00</p>
+                      </div>
+                      <div class="card__add-to-basket _icon-basket"></div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="cards__card card">
+                  <ul class="card__container">
+                    <li class="card__availability">
+                      <img src="./assets/images/svg/check-availability.svg" alt="availability">
+                      <p>in stock</p>
+                    </li>
+                    <li class="card__image-block">
+                      <a class="card__link" href="">
+                        <img class="card__image" src="./assets/images/content-img/brends/laptops/acer/spin-7.png" alt="spin-7.png">
+                      </a>
+                    </li>
+                    <li class="card__position position">
+                      <ul class="position__stars">
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                      </ul>
+                      <p class="position__text">Reviews <span>(4)</span></p>
+                    </li>
+                    <li class="card__description">EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...</li>
+                    <li class="card__purchase-info">
+                      <div class="card__prices">
+                        <p class="card__price card__price_old">$499.00</p>
+                        <p class="card__price">$499.00</p>
+                      </div>
+                      <div class="card__add-to-basket _icon-basket"></div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="cards__card card">
+                  <ul class="card__container">
+                    <li class="card__availability">
+                      <img src="./assets/images/svg/check-availability.svg" alt="availability">
+                      <p>in stock</p>
+                    </li>
+                    <li class="card__image-block">
+                      <a class="card__link" href="">
+                        <img class="card__image" src="./assets/images/content-img/brends/laptops/acer/spin-7.png" alt="spin-7.png">
+                      </a>
+                    </li>
+                    <li class="card__position position">
+                      <ul class="position__stars">
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                      </ul>
+                      <p class="position__text">Reviews <span>(4)</span></p>
+                    </li>
+                    <li class="card__description">EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...</li>
+                    <li class="card__purchase-info">
+                      <div class="card__prices">
+                        <p class="card__price card__price_old">$499.00</p>
+                        <p class="card__price">$499.00</p>
+                      </div>
+                      <div class="card__add-to-basket _icon-basket"></div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="cards__card card">
+                  <ul class="card__container">
+                    <li class="card__availability">
+                      <img src="./assets/images/svg/check-availability.svg" alt="availability">
+                      <p>in stock</p>
+                    </li>
+                    <li class="card__image-block">
+                      <a class="card__link" href="">
+                        <img class="card__image" src="./assets/images/content-img/brends/laptops/acer/spin-7.png" alt="spin-7.png">
+                      </a>
+                    </li>
+                    <li class="card__position position">
+                      <ul class="position__stars">
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                      </ul>
+                      <p class="position__text">Reviews <span>(4)</span></p>
+                    </li>
+                    <li class="card__description">EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...</li>
+                    <li class="card__purchase-info">
+                      <div class="card__prices">
+                        <p class="card__price card__price_old">$499.00</p>
+                        <p class="card__price">$499.00</p>
+                      </div>
+                      <div class="card__add-to-basket _icon-basket"></div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="cards__card card">
+                  <ul class="card__container">
+                    <li class="card__availability">
+                      <img src="./assets/images/svg/check-availability.svg" alt="availability">
+                      <p>in stock</p>
+                    </li>
+                    <li class="card__image-block">
+                      <a class="card__link" href="">
+                        <img class="card__image" src="./assets/images/content-img/brends/laptops/acer/spin-7.png" alt="spin-7.png">
+                      </a>
+                    </li>
+                    <li class="card__position position">
+                      <ul class="position__stars">
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                      </ul>
+                      <p class="position__text">Reviews <span>(4)</span></p>
+                    </li>
+                    <li class="card__description">EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...</li>
+                    <li class="card__purchase-info">
+                      <div class="card__prices">
+                        <p class="card__price card__price_old">$499.00</p>
+                        <p class="card__price">$499.00</p>
+                      </div>
+                      <div class="card__add-to-basket _icon-basket"></div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="cards__card card">
+                  <ul class="card__container">
+                    <li class="card__availability">
+                      <img src="./assets/images/svg/check-availability.svg" alt="availability">
+                      <p>in stock</p>
+                    </li>
+                    <li class="card__image-block">
+                      <a class="card__link" href="">
+                        <img class="card__image" src="./assets/images/content-img/brends/laptops/acer/spin-7.png" alt="spin-7.png">
+                      </a>
+                    </li>
+                    <li class="card__position position">
+                      <ul class="position__stars">
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                        <li class="position__star _icon-cart-star"></li>
+                      </ul>
+                      <p class="position__text">Reviews <span>(4)</span></p>
+                    </li>
+                    <li class="card__description">EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...</li>
+                    <li class="card__purchase-info">
+                      <div class="card__prices">
+                        <p class="card__price card__price_old">$499.00</p>
+                        <p class="card__price">$499.00</p>
+                      </div>
+                      <div class="card__add-to-basket _icon-basket"></div>
+                    </li>
+                  </ul>
+                </div>
+              </section>
+              <section class="all-products____pagination pagination">
+                <div class="pagination__wraper">
+                  <button class="pagination__button pagination__button_begin">
+                    <svg width="25" height="11" viewBox="0 0 25 11" fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M9.94687 10.7852L0.913671 6.08789V4.98438L9.94687 0.287109V1.625L2.43711 5.53125L9.94687 9.44727V10.7852ZM24.018 10.7852L14.9848 6.08789V4.98438L24.018 0.287109V1.625L16.5082 5.53125L24.018 9.44727V10.7852Z"
+                        fill="#CDCDCD" />
+                    </svg>
+                  </button>
+                  <button class="pagination__button pagination__button_previous">
+                    <svg width="10" height="11" viewBox="0 0 10 11" fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M9.98242 10.7852L0.949219 6.08789V4.98438L9.98242 0.287109V1.625L2.47266 5.53125L9.98242 9.44727V10.7852Z"
+                        fill="#CDCDCD" />
+                    </svg>
+                  </button>
+                  <button class="pagination__button pagination__button_current-page">1</button>
+                  <button class="pagination__button pagination__button_next">
+                    <svg width="10" height="11" viewBox="0 0 10 11" fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M9.04102 6.08789L0.0078125 10.7852V9.44727L7.51758 5.53125L0.0078125 1.625V0.287109L9.04102 4.98438V6.08789Z"
+                        fill="#292929" />
+                    </svg>
+                  </button>
+                  <button class="pagination__button pagination__button_end">
+                    <svg width="25" height="11" viewBox="0 0 25 11" fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M10.0055 6.08789L0.972265 10.7852V9.44727L8.48203 5.53125L0.972265 1.625V0.287109L10.0055 4.98438V6.08789ZM24.0766 6.08789L15.0434 10.7852V9.44727L22.5531 5.53125L15.0434 1.625V0.287109L24.0766 4.98438V6.08789Z"
+                        fill="#292929" />
+                    </svg>
+                  </button>
+                </div>
+              </section>
+            </div>
+          </section>
       </main>
       <footer class="footer">
         <div class="footer__container">

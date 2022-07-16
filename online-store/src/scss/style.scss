@@ -44,6 +44,24 @@ h2 {
   line-height: 33px;
 }
 
+h3 {
+  font-size: rem(18);
+  font-weight: 600;
+  line-height: 140%;
+}
+
+h4 {
+  font-size: rem(16);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+h5 {
+  font-size: rem(14);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
 .wrapper {
   min-height: 100%;
   display: flex;
@@ -71,4 +89,6 @@ h2 {
 
 @import "./components/header";
 @import "./components/slider";
+@import "./components/all-products";
+
 @import "./components/footer";
