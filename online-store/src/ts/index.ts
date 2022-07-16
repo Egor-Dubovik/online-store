@@ -1,5 +1,6 @@
-import '../scss/style.scss';
 import './components/slider';
+import './components/range-slider';
+import '../scss/style.scss';
 // import json from '../assets/products.json';
 import { removeClasses, toggleClasses } from './components/baseFunctions';
 
@@ -49,4 +50,3 @@ window.onload = () => {
 
   document.addEventListener('click', documentActions);
 };
-
