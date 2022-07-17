@@ -11,3 +11,4 @@ export function removeClasses(array: HTMLElement[], className: string): void {
     array[i].classList.remove(className);
   }
 }
+

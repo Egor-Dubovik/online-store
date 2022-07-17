@@ -1,52 +1,19 @@
 import './components/slider';
 import './components/range-slider';
 import '../scss/style.scss';
-// import json from '../assets/products.json';
-import { removeClasses, toggleClasses } from './components/baseFunctions';
+import cardJson from '../assets/products.json';
+import { App } from './components/classes/App';
+import { IProductCardData } from './interfaces/product.interface';
 
-const searchButton = document.querySelector('.header-search__button') as HTMLButtonElement;
-const navigationBlock = document.querySelector('.header__navigation') as HTMLElement;
-const menuButton = document.querySelector('.icon-menu') as HTMLButtonElement;
-const searchForm = document.querySelector('.header__search-form') as HTMLFormElement;
-const infoList = document.querySelector('.header-top__info-list') as HTMLElement;
+const sectionCards = document.querySelector('.cards') as HTMLElement;
+// const sortSelect = document.querySelector('.sorting') as HTMLSelectElement;
 
-const toggleInputSearch = (): void => {
-  toggleClasses([searchForm, searchButton], '_active');
-  navigationBlock.classList.toggle('_hidden');
-};
+const productCards: IProductCardData[] = cardJson.laptops;
+const app = new App();
 
-const toggleBurgerMenu = (): void => {
-  toggleClasses([menuButton, navigationBlock], '_active');
-  removeClasses([searchForm, searchButton], '_active');
-  navigationBlock.classList.remove('_hidden');
-};
+// First cards rendering
+app.displayCards(sectionCards, productCards);
 
-window.onload = () => {
-  const documentActions = (event: Event) => {
-    const targetElement = event.target as HTMLElement;
+// Listeners -------------------------------------------------------------------
+document.addEventListener('pointerdown', app.eventHandling.bind(app));
 
-    if (targetElement.closest('.icon-menu')) {
-      toggleBurgerMenu();
-    }
-
-    if (targetElement.closest('.header-search__button')) {
-      toggleInputSearch();
-    }
-
-    // Infolist events processing
-    if (targetElement.closest('.header-top__timetable-button')) {
-      infoList.classList.toggle('_active');
-    }
-
-    if (
-      infoList.classList.contains('_active') &&
-      !targetElement.closest('.header-top__info-list') &&
-      !targetElement.closest('.header-top__timetable-button')
-    ) {
-      infoList.classList.remove('_active');
-    }
-    //---------------------------------------------------------------
-  };
-
-  document.addEventListener('click', documentActions);
-};

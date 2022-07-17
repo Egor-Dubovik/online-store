@@ -198,6 +198,7 @@
   align-items: center;
 }
 .header__search-form {
+  z-index: 3;
   display: none;
   flex: 1 1 100%;
   align-items: center;
