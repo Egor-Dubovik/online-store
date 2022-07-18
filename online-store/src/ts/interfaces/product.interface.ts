@@ -15,6 +15,8 @@ export interface IProductCardData {
 }
 
 export interface IProductCard {
+  allProductCards: IProductCardData[];
+  visibleProductCards: IProductCardData[];
   createСard: (
     name: string,
     brend: string,

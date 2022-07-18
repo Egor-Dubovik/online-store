@@ -3,17 +3,21 @@ import './components/range-slider';
 import '../scss/style.scss';
 import cardJson from '../assets/products.json';
 import { App } from './components/classes/App';
-import { IProductCardData } from './interfaces/product.interface';
 
-const sectionCards = document.querySelector('.cards') as HTMLElement;
-// const sortSelect = document.querySelector('.sorting') as HTMLSelectElement;
+export const sectionCards = document.querySelector('.cards') as HTMLElement;
+export const sortSelect = document.querySelector('.sorting') as HTMLSelectElement;
 
-const productCards: IProductCardData[] = cardJson.laptops;
-const app = new App();
+// const productCards: IProductCardData[] = cardJson.laptops;
+const app = new App(cardJson.laptops, cardJson.laptops);
 
 // First cards rendering
-app.displayCards(sectionCards, productCards);
+app.sortProductCard(sortSelect, sectionCards);
 
 // Listeners -------------------------------------------------------------------
-document.addEventListener('pointerdown', app.eventHandling.bind(app));
+document.addEventListener('click', app.eventHandling.bind(app));
+sortSelect.addEventListener('change', app.sortProductCard.bind(app, sortSelect, sectionCards));
 
+// const noUiConnect = document.querySelectorAll('.noUi-connect') as NodeListOf<Element>;
+// noUiConnect.forEach((content) =>
+//   content.addEventListener('transitionend', app.cardFiltering.bind(app))
+// );

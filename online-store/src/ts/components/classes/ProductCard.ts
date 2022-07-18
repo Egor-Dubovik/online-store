@@ -1,8 +1,18 @@
 import { IProductCardData, IProductCard } from '../../interfaces/product.interface';
 import { AvailabilityOptions } from '../../types/card.types';
 import { Numbers, INITIAL_STEP } from '../../constants/numbers';
+import { SortingType } from '../../types/card.types';
+import { Sort } from '../../constants/strings';
 
 export class ProductCard implements IProductCard {
+  readonly allProductCards: IProductCardData[];
+  public visibleProductCards: IProductCardData[];
+
+  constructor(allProductCards: IProductCardData[], visibleProductCards: IProductCardData[]) {
+    this.allProductCards = allProductCards;
+    this.visibleProductCards = visibleProductCards;
+  }
+
   createProductRating(rating: number): string {
     let starsBlock = '';
 
@@ -45,7 +55,9 @@ export class ProductCard implements IProductCard {
     const { text, icon } = this.checkAvailability(amount);
 
     oldPrice ? (oldPrice = '$' + oldPrice) : oldPrice;
-
+  //   <li class="card__image-block">
+  //   ${color}
+  // </li>
     return (`
           <div class="cards__card card" data-color="${color}" data-popular="${popular}" data-brend="${brend}" data-year="${year}" data-price="${price}">
             <ul class="card__container">
@@ -100,5 +112,27 @@ export class ProductCard implements IProductCard {
       );
       sectionCards.innerHTML += productCard;
     }
+  }
+
+  sortProductCard(sortSelect: HTMLSelectElement, sectionCards: HTMLElement) {
+    const selectData = sortSelect.value.split(',');
+    let sortProductCards: IProductCardData[];
+    let sortingType: SortingType;
+
+    selectData[Numbers.zero] === Sort.year ? (sortingType = Sort.year) : (sortingType = Sort.price);
+
+    if (selectData[Numbers.one] === Sort.ascending) {
+      sortProductCards = this.visibleProductCards.sort(
+        (firstCard, secondCard): number =>
+          firstCard[`${sortingType}`] - secondCard[`${sortingType}`]
+      );
+    } else {
+      sortProductCards = this.visibleProductCards.sort(
+        (firstCard, secondCard): number =>
+          secondCard[`${sortingType}`] - firstCard[`${sortingType}`]
+      );
+    }
+
+    this.displayCards(sectionCards, sortProductCards);
   }
 }

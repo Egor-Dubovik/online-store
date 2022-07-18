@@ -61,7 +61,7 @@
           <div class="header__main">
             <div class="header__container">
               <a href="#" class="header__logo"><img src="./assets/images/svg/logo.svg" alt="logo"></a>
-                <nav class="header__navigation">
+                <nav class="header__navigation _hidden">
                   <ul class="header__menu menu">
                     <li class="menu__item"><a class="menu__link" href="#">Laptops</a></li>
                     <li class="menu__item"><a class="menu__link" href="#">Desktop PCs</a></li>
@@ -69,12 +69,12 @@
                     <li class="menu__item"><a class="menu__link" href="#">Our Deals</a></li>
                   </ul>
                 </nav>
-                <form action="#" class="header__search-form">
-                  <input class="header__search-input" name="search" autocomplete="off" type="text" placeholder="Search entiere store here...">
+                <form action="#" class="header__search-form _active">
+                  <input class="header__search-input" name="search" autocomplete="off" type="text" placeholder="Search entiere store here..." autofocus>
                     <button type="submit" class="header__search-button _icon-search"></button>
                 </form>
                 <div class="header__actions actions-header">
-                  <button type="submit" class="header-search__button"></button>
+                  <button type="submit" class="header-search__button _active"></button>
                   <div class="actions-header__item header-basket">
                     <a href="#" class="header-basket__link _icon-basket"></a>
                     <span class="header-basket__amount-in-basket">1</span>
@@ -170,7 +170,7 @@
                 <div class="aside__filters filters">
                   <header class="filters__header">
                     <h4 class="filters__title">Filters</h4>
-                    <button class="filters__button" type="reset">Clear Filter</button>
+                    <button class="filters__button filters__button_clear" type="reset">Clear Filter</button>
                   </header>
                   <ul class="filters__body">
                     <li class="filters__filter filter">
@@ -192,22 +192,22 @@
                       <ul class="filter__colors">
                         <li class="filter__colors">
                           <div class="filter__color">
-                            <input class="filter__color-input"  id="color-black" type="checkbox">
+                            <input class="filter__color-input" value="black" type="checkbox">
                             <button class="filter__color-button filter__color-button_black"></button>
                             <img class="filter__color-checked-icon" src="./assets/images/svg/checkout-done.svg" alt="icon done"></img>
                           </div>
                           <div class="filter__color">
-                            <input class="filter__color-input"  id="color-white" type="checkbox">
+                            <input class="filter__color-input" value="white" type="checkbox">
                             <button class="filter__color-button filter__color-button_white"></button>
                             <img class="filter__color-checked-icon" src="./assets/images/svg/checkout-done.svg" alt="icon done"></img>
                           </div>
                           <div class="filter__color">
-                            <input class="filter__color-input" id="color-green" type="checkbox"> 
+                            <input class="filter__color-input" value="green" type="checkbox"> 
                             <button class="filter__color-button filter__color-button_green"></button>
                             <img class="filter__color-checked-icon" src="./assets/images/svg/checkout-done.svg" alt="icon done"></img>
                           </div>
                           <div class="filter__color">
-                            <input class="filter__color-input"  id="color-yellow" type="checkbox"> 
+                            <input class="filter__color-input" value="yellow" type="checkbox"> 
                             <button class="filter__color-button filter__color-button_yellow"></button>
                             <img class="filter__color-checked-icon" src="./assets/images/svg/checkout-done.svg" alt="icon done"></img>
                           </div>
@@ -227,6 +227,7 @@
                       <input class="filter__input filter__input_popular" type="checkbox">
                     </li>
                   </ul>
+                  <button class="filters__button filters__button_apply">Apply Filters</button>
                 </div>
                 <div class="aside__advertisement">
                   <div class="aside__advertisement-item">

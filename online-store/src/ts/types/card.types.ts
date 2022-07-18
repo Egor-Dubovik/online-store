@@ -4,3 +4,4 @@ export type AvailabilityOptions = {
 };
 
 export type SortingType = 'year' | 'price';
+export type FilteringType = 'price' | 'rating' | 'brend' | 'popular';

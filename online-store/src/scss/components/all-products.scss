@@ -166,10 +166,18 @@
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 1;
   width: 100%;
   height: 100%;
   font-size: 0;
   opacity: 0;
+  cursor: pointer;
+}
+.filter__color-input:hover + .filter__color-button {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+}
+.filter__color-input._active + .filter__color-button {
+  box-shadow: 0 0 10px $blueColor;
 }
 .filter__color-button {
   position: absolute;
@@ -178,12 +186,6 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-}
-.filter__color-button:hover {
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
-}
-.filter__color-button._active {
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
 }
 .filter__color-checked-icon {
   position: absolute;
@@ -367,6 +369,7 @@
 }
 .position {
   display: flex;
+  justify-content: space-between;
   color: $mainColor;
 }
 .position__stars {
@@ -492,4 +495,7 @@
 .pagination__button_next {
 }
 .pagination__button_end {
+}
+.noUi-connect {
+  transition: all 0.1s;
 }

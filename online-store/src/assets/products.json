@@ -22,7 +22,7 @@
         "amount": 10,
         "brend": "ACER",
         "name": "Swift 7",
-        "popular": false,
+        "popular": true,
         "src": "../../assets/images/content-img/brends/laptops/acer/swift_7.png",
         "ditails": ["Intel Core i7-8500Y  2600 MHz", "Intel UHD Graphics 615", "14.0'' 1920 x 1080 IPS", "90 Hz", "not touch",  "SSD 512 GB"]
       },
@@ -165,7 +165,7 @@
         "amount": 10,
         "brend": "Lenovo",
         "name": "Lenovo Legion 5 Pro",
-        "popular": false,
+        "popular": true,
         "src": "../../assets/images/content-img/brends/laptops/lenovo/Legion.jpeg",
         "ditails": ["AMD Ryzen 5 5600H 3300 MHz", "NVIDIA GeForce RTX 3050 Ti 4 GB", "16\" 1920 x 1080 IPS", "144 Hz", "DDR4", "not touch",  "SSD 512 GB"]
       },
@@ -230,7 +230,7 @@
         "amount": 10,
         "brend": "DELL",
         "name": "Dell Alienware x15",
-        "popular": false,
+        "popular": true,
         "src": "../../assets/images/content-img/brends/laptops/dell/Alienware.jpeg",
         "ditails": ["Intel Core i3 8145U 2100 MHz", "video card built-in", "14\" 1920 x 1080 IPS", "144 Hz", "DDR4", "not touch",  "SSD 512 GB"]
       },
@@ -295,7 +295,7 @@
         "amount": 10,
         "brend": "Gigabyte",
         "name": "Gigabyte G5",
-        "popular": false,
+        "popular": true,
         "src": "../../assets/images/content-img/brends/laptops/gigabyte/G5.jpeg",
         "ditails": ["Intel Core i5 11400H 2700 MHz", "NVIDIA GeForce RTX 3060 Ti 4", "14\" 1920 x 1080 IPS", "90 Hz", "DDR4", "not touch",  "SSD 512 GB"]
       },
