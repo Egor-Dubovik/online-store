@@ -58,14 +58,10 @@ export class Filter extends ProductCard {
       );
     }
 
-    const checkedColors: string[] = [];
     colorFilter.forEach((color) => {
-      if (color.checked) checkedColors.push(color.value);
+      if (color.checked)
+        filteringProductCards = this.filterByColor(color.value, filteringProductCards);
     });
-
-    if (checkedColors.length) {
-      filteringProductCards = this.filterByColor(checkedColors, filteringProductCards);
-    }
 
     this.curentRenderCards = filteringProductCards;
     this.sortProductCard(sortSelect, sectionCards);
@@ -110,20 +106,17 @@ export class Filter extends ProductCard {
     return productCards;
   }
 
-  filterByColor(colors: string[], productCards: IProductCardData[]) {
+  filterByColor(color: string, productCards: IProductCardData[]) {
     let index = INITIAL_STEP;
 
     while (index < productCards.length) {
       const card = productCards[index];
 
-      colors.forEach((color) => {
-        if (!card.color.join(',').includes(color)) {
-          productCards.splice(index, Numbers.one)[Numbers.zero];
-        } else {
-          ++index;
-        }
-        console.log(card.color.join(',').includes(color), card.color.join(','), color);
-      });
+      if (!card.color.join(',').includes(color)) {
+        productCards.splice(index, Numbers.one)[Numbers.zero];
+      } else {
+        ++index;
+      }
     }
 
     return productCards;

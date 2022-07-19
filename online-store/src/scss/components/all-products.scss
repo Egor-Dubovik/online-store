@@ -176,7 +176,7 @@
 .filter__color-input:hover + .filter__color-button {
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
 }
-.filter__color-input._active + .filter__color-button {
+.filter__color-input:checked + .filter__color-button {
   box-shadow: 0 0 10px $blueColor;
 }
 .filter__color-button {

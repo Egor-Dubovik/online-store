@@ -74,10 +74,6 @@ export class App extends Filter {
       this.filterProductCards();
     }
 
-    if (targetElement.closest('.filter__color-input')) {
-      targetElement.classList.toggle('_active');
-    }
-
     // add card to basket ---------------------------------------------------
     if (targetElement.closest('.card__add-to-basket')) {
       const card = targetElement.closest('.card') as HTMLDivElement;
