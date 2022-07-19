@@ -330,6 +330,12 @@
 .card {
   padding: rem(15) rem(15) rem(25) rem(10);
   background-color: #f7f7ff;
+  border-radius: rem(5);
+  transition: box-shadow 0.3s;
+}
+.card._active {
+  border: 2px solid #f5870a8b;
+  box-shadow: 0px 5px 10px #f5870a77;
 }
 .card:hover {
   background-color: #f5f5ff;
@@ -432,6 +438,18 @@
   background-color: $blueColor;
   transition: background-color 0.1s ease-in;
 }
+.card__add-to-basket._active {
+  background-color: #f5870a;
+}
+.card__add-to-basket._active:hover {
+  background-color: #f5210a;
+}
+.card__add-to-basket._active:hover {
+}
+.card__add-to-basket._empty {
+  background-color: #f5210a;
+}
+
 .card__prices {
 }
 .card__price {

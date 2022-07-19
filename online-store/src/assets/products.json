@@ -10,6 +10,7 @@
         "brend": "ACER",
         "name": "Swift 3X",
         "popular": false,
+        "favorite": false,
         "src": "./assets/images/content-img/brends/laptops/acer/swift-3X.png",
         "ditails": ["Intel Core i5 1135G7 2400 MHz", "Intel Iris Xe Max 4 GB", "14.0'' 1920 x 1080 IPS", "60 Hz", "not touch",  "SSD 512 GB"]
       },
@@ -23,6 +24,7 @@
         "brend": "ACER",
         "name": "Swift 7",
         "popular": true,
+        "favorite": false,
         "src": "./assets/images/content-img/brends/laptops/acer/swift_7.png",
         "ditails": ["Intel Core i7-8500Y  2600 MHz", "Intel UHD Graphics 615", "14.0'' 1920 x 1080 IPS", "90 Hz", "not touch",  "SSD 512 GB"]
       },
@@ -36,6 +38,7 @@
         "brend": "ACER",
         "name": "Swift 3",
         "popular": false,
+        "favorite": false,
         "src": "./assets/images/content-img/brends/laptops/acer/swift-3.png",
         "ditails": ["Intel Core i4 1135G7 2400 MHz", "Intel Iris Xe Max 4 GB", "14.0'' 1920 x 1080 IPS", "60 Hz", "not touch",  "SSD 512 GB"]
       },
@@ -49,6 +52,7 @@
         "brend": "ACER",
         "name": "Swift X SFX16 52G",
         "popular": false,
+        "favorite": false,
         "src": "./assets/images/content-img/brends/laptops/acer/swift-x-sfx16-52g.png",
         "ditails": ["Intel Core i5 SFX16 2400 MHz", "Intel Iris Max 6 GB", "14.0'' 1920 x 1080 IPS", "60 Hz", "not touch",  "SSD 512 GB"]
       },
@@ -62,6 +66,7 @@
         "brend": "ACER",
         "name": "Spin 7",
         "popular": true,
+        "favorite": false,
         "src": "./assets/images/content-img/brends/laptops/acer/spin-7.png",
         "ditails": ["Intel Core i7-7Y75 3600 MHz", "Intel UHD Graphics 615", "14.0'' 1920 x 1080 IPS", "90 Hz", "not touch",  "SSD 512/1024 GB"]
       },
@@ -75,6 +80,7 @@
         "brend": "APPLE",
         "name": "Macbook Pro 14",
         "popular": true,
+        "favorite": false,
         "src": "./assets/images/content-img/brends/laptops/apple/Macbook-Air-13.jpeg",
         "ditails": ["Apple M1 Pro", "video card built-in", "14.2\" 3024 x 1964 IPS", "120 Hz", "not touch",  "SSD 512/1024 GB"]
       },
@@ -88,6 +94,7 @@
         "brend": "APPLE",
         "name": "Macbook Pro 16",
         "popular": false,
+        "favorite": false,
         "src": "./assets/images/content-img/brends/laptops/apple/Macbook-Air-16.jpeg",
         "ditails": ["Apple M1 Pro (10)", "video card built-in", "14.2\" 3024 x 1964 IPS", "120 Hz", "not touch",  "SSD 512/1024 GB"]
       },
@@ -101,6 +108,7 @@
         "brend": "APPLE",
         "name": "Macbook Air 13",
         "popular": false,
+        "favorite": false,
         "src": "./assets/images/content-img/brends/laptops/apple/Macbook-Pro-14.jpeg",
         "ditails": ["Apple M1 Pro 3200 MHz", "video card built-in", "13.3\" 2560 x 1600 IPS", "120 Hz", "not touch",  "SSD 512 GB"]
       },
@@ -114,6 +122,7 @@
         "brend": "ASUS",
         "name": "ASUS ROG Strix G15",
         "popular": true,
+        "favorite": false,
         "src": "./assets/images/content-img/brends/laptops/asus/ASUS-ROG.jpeg",
         "ditails": ["AMD Ryzen 7 4800H 2900 MHz", "video card built-in", "15.6\" 1920 x 1080 IPS", "144 Hz", "DDR4", "not touch",  "SSD 512 GB"]
       },
@@ -127,6 +136,7 @@
         "brend": "ASUS",
         "name": "ASUS TUF Gaming Dash",
         "popular": false,
+        "favorite": false,
         "src": "./assets/images/content-img/brends/laptops/asus/Gaming-Dash.jpeg",
         "ditails": ["Intel Core i7 11370H 3300 MHz", "NVIDIA GeForce RTX 3060", "15.6\" 1920 x 1080 IPS", "144 Hz", "DDR4", "not touch",  "SSD 512 GB"]
       },
@@ -140,6 +150,7 @@
         "brend": "ASUS",
         "name": "ASUS VivoBook 14",
         "popular": false,
+        "favorite": false,
         "src": "./assets/images/content-img/brends/laptops/asus/VivoBook.jpeg",
         "ditails": ["Intel Core i5 1135G7 2400 MHz", "video card built-in", "14\" 1920 x 1080 IPS", "144 Hz", "DDR4", "not touch",  "SSD 512 GB"]
       },
@@ -153,6 +164,7 @@
         "brend": "Lenovo",
         "name": "Lenovo IdeaPad Gaming 3",
         "popular": false,
+        "favorite": false,
         "src": "./assets/images/content-img/brends/laptops/lenovo/IdeaPad.jpeg",
         "ditails": ["AMD Ryzen 7 5800H 3200 MHz", "NVIDIA GeForce RTX 3050 Ti 4 GB", "15.6\" 1920 x 1080 IPS", "144 Hz", "DDR4", "not touch",  "SSD 512 GB"]
       },
@@ -166,6 +178,7 @@
         "brend": "Lenovo",
         "name": "Lenovo Legion 5 Pro",
         "popular": true,
+        "favorite": false,
         "src": "./assets/images/content-img/brends/laptops/lenovo/Legion.jpeg",
         "ditails": ["AMD Ryzen 5 5600H 3300 MHz", "NVIDIA GeForce RTX 3050 Ti 4 GB", "16\" 1920 x 1080 IPS", "144 Hz", "DDR4", "not touch",  "SSD 512 GB"]
       },
@@ -179,6 +192,7 @@
         "brend": "Lenovo",
         "name": "Lenovo IdeaPad 5 Pro",
         "popular": false,
+        "favorite": false,
         "src": "./assets/images/content-img/brends/laptops/lenovo/IdeaPad-5.jpeg",
         "ditails": ["AMD Ryzen 5 5600H 2300 MHz", "video card built-in", "14\" 1920 x 1080 IPS", "144 Hz", "DDR4", "not touch",  "SSD 512 GB"]
       },
@@ -192,6 +206,7 @@
         "brend": "DELL",
         "name": "Dell XPS 15 9520",
         "popular": true,
+        "favorite": false,
         "src": "./assets/images/content-img/brends/laptops/dell/XPS-15.jpeg",
         "ditails": ["Intel Core i7 12700H 3500 MHz", "NVIDIA GeForce RTX 3050 4", "14\" 1920 x 1080 IPS", "144 Hz", "DDR4", "not touch",  "SSD 512 GB"]
       },
@@ -205,6 +220,7 @@
         "brend": "DELL",
         "name": "Dell Vostro 15",
         "popular": false,
+        "favorite": false,
         "src": "./assets/images/content-img/brends/laptops/dell/Vostro-15.jpeg",
         "ditails": ["AMD Ryzen 3 3250U 2600 MHz", "video card built-in", "14\" 1920 x 1080 IPS", "144 Hz", "DDR4", "not touch",  "SSD 512 GB"]
       },
@@ -218,6 +234,7 @@
         "brend": "DELL",
         "name": "Dell Latitude 14",
         "popular": false,
+        "favorite": false,
         "src": "./assets/images/content-img/brends/laptops/dell/Vostro-15.jpeg",
         "ditails": ["Intel Core i3 8145U 2100 MHz", "video card built-in", "14\" 1920 x 1080 IPS", "144 Hz", "DDR4", "not touch",  "SSD 512 GB"]
       },
@@ -231,6 +248,7 @@
         "brend": "DELL",
         "name": "Dell Alienware x15",
         "popular": true,
+        "favorite": false,
         "src": "./assets/images/content-img/brends/laptops/dell/Alienware.jpeg",
         "ditails": ["Intel Core i3 8145U 2100 MHz", "video card built-in", "14\" 1920 x 1080 IPS", "144 Hz", "DDR4", "not touch",  "SSD 512 GB"]
       },
@@ -244,6 +262,7 @@
         "brend": "HP",
         "name": "HP Victus 16",
         "popular": false,
+        "favorite": false,
         "src": "./assets/images/content-img/brends/laptops/hp/Victus.jpeg",
         "ditails": ["AMD Ryzen 5 5600H 3300 MHz", "NVIDIA GeForce RTX 3050 Ti 4", "14\" 1920 x 1080 IPS", "60 Hz", "DDR4", "not touch",  "SSD 512 GB"]
       },
@@ -257,6 +276,7 @@
         "brend": "HP",
         "name": "HP ProBook 455",
         "popular": false,
+        "favorite": false,
         "src": "./assets/images/content-img/brends/laptops/hp/ProBook.jpeg",
         "ditails": ["AMD Ryzen 3 5400H 3300 MHz", "NVIDIA GeForce RTX 3050 Ti 4", "14\" 1920 x 1080 IPS", "60 Hz", "DDR4", "not touch",  "SSD 512 GB"]
       },
@@ -270,6 +290,7 @@
         "brend": "MSI",
         "name": "MSI Thin GF63",
         "popular": false,
+        "favorite": false,
         "src": "./assets/images/content-img/brends/laptops/msi/GF63.jpeg",
         "ditails": ["Intel Core i5 11400H 2700 MHz", "NVIDIA GeForce RTX 3050 Ti 4", "14\" 1920 x 1080 IPS", "90 Hz", "DDR4", "not touch",  "SSD 512 GB"]
       },
@@ -283,6 +304,7 @@
         "brend": "MSI",
         "name": "MSI Raider GE76",
         "popular": false,
+        "favorite": false,
         "src": "./assets/images/content-img/brends/laptops/msi/Raider.jpeg",
         "ditails": ["Intel Core i9 12900HK 3800 MHz", "NVIDIA GeForce RTX 3070 Ti 4", "14\" 1920 x 1080 IPS", "144 Hz", "DDR4", "not touch",  "SSD 512 GB"]
       },
@@ -296,6 +318,7 @@
         "brend": "Gigabyte",
         "name": "Gigabyte G5",
         "popular": true,
+        "favorite": false,
         "src": "./assets/images/content-img/brends/laptops/gigabyte/G5.jpeg",
         "ditails": ["Intel Core i5 11400H 2700 MHz", "NVIDIA GeForce RTX 3060 Ti 4", "14\" 1920 x 1080 IPS", "90 Hz", "DDR4", "not touch",  "SSD 512 GB"]
       },
@@ -309,6 +332,7 @@
         "brend": "Gigabyte",
         "name": "Gigabyte Aero 15",
         "popular": true,
+        "favorite": false,
         "src": "./assets/images/content-img/brends/laptops/gigabyte/Aero-15.jpeg",
         "ditails": ["Intel Core i7 11800H 2300 MHz", "NVIDIA GeForce RTX 3080 8", "14\" 1920 x 1080 IPS", "90 Hz", "DDR4", "not touch",  "SSD 512 GB"]
       }

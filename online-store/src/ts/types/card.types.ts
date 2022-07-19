@@ -1,6 +1,7 @@
 export type AvailabilityOptions = {
   text: string;
   icon: string;
+  basketClass: string;
 };
 
 export type SortingType = 'year' | 'price';

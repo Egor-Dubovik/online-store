@@ -25,7 +25,8 @@ $mobile: em(767.98);
 $mobileSmall: em(479.98);
 
 body {
-  background-color: #ffffff;
+  position: relative;
+  background-color: #fff;
   font-family: $fontFamily;
   font-size: $fontSize;
   font-weight: 400;
@@ -92,3 +93,4 @@ h5 {
 @import "./components/all-products";
 
 @import "./components/footer";
+@import "./components/popap";

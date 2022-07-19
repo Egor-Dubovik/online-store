@@ -9,5 +9,5 @@ export enum Filtering {
   position = 'rating',
   brend = 'brend',
   popular = 'popular',
-  // color = 
+  name = 'name',
 }

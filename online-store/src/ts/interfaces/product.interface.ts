@@ -12,6 +12,7 @@ export interface IProductCardData {
   ditails: string[];
   color: string[];
   popular: boolean;
+  favorite: boolean;
 }
 
 export interface IProductCard {

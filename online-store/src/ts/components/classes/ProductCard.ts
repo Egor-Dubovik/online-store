@@ -3,7 +3,7 @@ import { AvailabilityOptions } from '../../types/card.types';
 import { Numbers, INITIAL_STEP } from '../../constants/numbers';
 import { SortingType } from '../../types/card.types';
 import { Sort } from '../../constants/strings';
-import { buttonShowMore, sectionCards} from '../../index';
+import { buttonShowMore, sectionCards } from '../../index';
 
 export class ProductCard implements IProductCard {
   readonly allProductCards: IProductCardData[];
@@ -33,13 +33,14 @@ export class ProductCard implements IProductCard {
   checkAvailability(amount: number): AvailabilityOptions {
     let availabilityText = '<p class="position__text position__text_green">in stock</p>' as string;
     let availabilityIcon = './assets/images/svg/in-stock.svg' as string;
-
+    let basketClass = 'card__add-to-basket _icon-basket';
     if (amount == 0) {
       availabilityText = '<p class="position__text position__text_red">check availability</p>';
       availabilityIcon = './assets/images/svg/check-availability.svg';
+      basketClass = 'card__add-to-basket _empty _icon-basket';
     }
 
-    return { text: availabilityText, icon: availabilityIcon };
+    return { text: availabilityText, icon: availabilityIcon, basketClass: basketClass };
   }
 
   createСard = (
@@ -53,16 +54,25 @@ export class ProductCard implements IProductCard {
     src: string,
     ditails: string[],
     color: string[],
-    popular: boolean
+    popular: boolean,
+    favorite: boolean
   ): HTMLDivElement => {
-    const { text, icon } = this.checkAvailability(amount);
+    let { text, icon, basketClass } = this.checkAvailability(amount);
+    let cardClass: string;
+
+    if (favorite) {
+      cardClass = 'cards__card card _active';
+      basketClass += ' _active';
+    } else {
+      cardClass = 'cards__card card';
+    }  
 
     oldPrice ? (oldPrice = '$' + oldPrice) : oldPrice;
   //   <li class="card__image-block">
   //   ${color}
   // </li>
     return (`
-          <div class="cards__card card" data-color="${color}" data-popular="${popular}" data-brend="${brend}" data-year="${year}" data-price="${price}">
+          <div class="${cardClass}" data-color="${color}" data-popular="${popular}" data-brend="${brend}" data-year="${year}" data-price="${price} "data-src="${src}" data-ditails="${ditails.toString()}" data-name="${name}">
             <ul class="card__container">
               <li class="card__availability">
                 <img src="${icon}" alt="availability icon">
@@ -89,7 +99,7 @@ export class ProductCard implements IProductCard {
                   <p class="card__price card__price_old">${oldPrice}</p>
                   <p class="card__price">$${price}</p>
                 </div>
-                <div class="card__add-to-basket _icon-basket"></div>
+                <div class="${basketClass}"></div>
               </li>
             </ul>
         </div>` as unknown) as HTMLDivElement;
@@ -119,7 +129,8 @@ export class ProductCard implements IProductCard {
         product.src,
         product.ditails,
         product.color,
-        product.popular
+        product.popular,
+        product.favorite
       );
       section.innerHTML += productCard;
     }

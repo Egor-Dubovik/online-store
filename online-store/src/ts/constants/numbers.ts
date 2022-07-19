@@ -15,3 +15,4 @@ export enum Numbers {
 }
 
 export const INITIAL_STEP = 0;
+export const SEARCH_TIME = 400;
