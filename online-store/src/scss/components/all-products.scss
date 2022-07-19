@@ -10,7 +10,7 @@
   grid-template-areas:
     "adjusting-view adjusting-view"
     "aside cards"
-    "pagination pagination";
+    "products-button products-button";
   column-gap: rem(20);
   row-gap: rem(15);
   @media (max-width: $tablet) {
@@ -18,7 +18,7 @@
       "adjusting-view adjusting-view"
       "aside aside"
       "cards cards"
-      "pagination pagination";
+      "products-button products-button";
     row-gap: rem(25);
   }
 }
@@ -315,20 +315,20 @@
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(234px, 1fr));
-  column-gap: 15px;
-
+  grid-auto-rows: min-content;
+  gap: rem(15);
   @media (max-width: $tablet) {
     grid-template-columns: 1fr 1fr;
   }
   @media (max-width: $mobile) {
     grid-template-columns: 1fr;
-    row-gap: 15px;
+    row-gap: rem(30);
   }
 }
 .cards__card {
 }
 .card {
-  padding: rem(15) rem(15) rem(25) rem(15);
+  padding: rem(15) rem(15) rem(25) rem(10);
   background-color: #f7f7ff;
 }
 .card:hover {
@@ -448,54 +448,33 @@
   text-decoration-line: line-through;
 }
 // pagination ----------------------------------------------------------------
-.pagination {
-  grid-area: pagination;
-  display: flex;
-  justify-content: center;
+.all-products__button {
+  grid-area: products-button;
+  padding: 1.6rem 0;
+  background-color: $blueColor;
+  border-radius: 3.125rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #fff;
+  transition: all 0.1s;
+  visibility: hidden;
+  opacity: 0;
+  @media (min-width: $tablet) {
+    grid-column: 2 / 3;
+    margin: 0 auto;
+    font-size: 0.9rem;
+    padding: 1rem 7rem;
+  }
 }
-.pagination__wraper {
-  display: flex;
+.all-products__button._active {
+  visibility: visible;
+  opacity: 1;
 }
-.pagination__wraper button:not(:last-child) {
-  margin-right: rem(13);
+.all-products__button._active:hover {
+  background-color: #1176dd;
 }
-.pagination__button {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: rem(35);
-  height: rem(35);
-  padding: rem(5);
-  box-sizing: content-box;
-  border: 2px solid $greenColor;
-  border-radius: rem(100);
-  font-size: rem(20);
-  line-height: 115%;
-  letter-spacing: 0.06em;
-  transition: 0.2s ease;
-  cursor: pointer;
-}
-.pagination__button:hover {
-  background-color: #3fb8af;
-  border-color: #3fb8af;
-}
-.pagination__button svg path {
-  fill: $mainColor;
-}
-.pagination__button_begin {
-}
-.pagination__button_previous {
-}
-.pagination__button_current-page {
-  background-color: #3fb8af;
-  border-color: #3fb8af;
-  cursor: default;
-}
-.pagination__button_next {
-}
-.pagination__button_end {
-}
+
 .noUi-connect {
   transition: all 0.1s;
 }

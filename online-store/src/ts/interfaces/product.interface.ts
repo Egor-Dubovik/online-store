@@ -16,7 +16,8 @@ export interface IProductCardData {
 
 export interface IProductCard {
   allProductCards: IProductCardData[];
-  visibleProductCards: IProductCardData[];
+  curentRenderCards: IProductCardData[];
+  counterVisibleCards: number;
   createСard: (
     name: string,
     brend: string,
@@ -30,6 +31,6 @@ export interface IProductCard {
     color: string[],
     popular: boolean
   ) => HTMLDivElement;
-  displayCards: (sectionCards: HTMLElement, productCards: IProductCardData[]) => void;
+  displayCards: (productCards: IProductCardData[], sectionCards: HTMLElement) => void;
   checkAvailability: (amount: number) => AvailabilityOptions;
 }

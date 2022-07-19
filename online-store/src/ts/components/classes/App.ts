@@ -3,22 +3,21 @@ import { IProductCardData } from '../../interfaces/product.interface';
 import { removeClasses, toggleClasses } from '../baseFunctions';
 import { INITIAL_STEP, Numbers } from '../../constants/numbers';
 import { FilteringType } from '../../types/card.types';
-import { sortSelect, sectionCards } from '../../index';
+import { sortSelect, sectionCards, searchInput } from '../../index';
 import { Filtering } from '../../constants/strings';
 
 const searchButton = document.querySelector('.header-search__button') as HTMLButtonElement;
 const navigationBlock = document.querySelector('.header__navigation') as HTMLElement;
 const menuButton = document.querySelector('.icon-menu') as HTMLButtonElement;
 const searchForm = document.querySelector('.header__search-form') as HTMLFormElement;
-const searchInput = document.querySelector('.header__search-input') as HTMLInputElement;
 const infoList = document.querySelector('.header-top__info-list') as HTMLElement;
 
 export class App extends ProductCard {
-  filteringProductCards: IProductCardData[];
+  // filteringProductCards: IProductCardData[];
 
-  constructor(allProductCards: IProductCardData[], visibleProductCards: IProductCardData[]) {
-    super(allProductCards, visibleProductCards);
-    this.filteringProductCards = [];
+  constructor(allProductCards: IProductCardData[], curentRenderCards: IProductCardData[]) {
+    super(allProductCards, curentRenderCards);
+    // this.filteringProductCards = [];
   }
 
   toggleInputSearch(): void {
@@ -35,6 +34,9 @@ export class App extends ProductCard {
 
   eventHandling(event: Event) {
     const targetElement = event.target as HTMLElement;
+
+    if (targetElement.closest('.header__search-button')) event.preventDefault();
+
     if (targetElement.closest('.icon-menu')) {
       this.toggleBurgerMenu();
     }
@@ -78,6 +80,8 @@ export class App extends ProductCard {
       '.filter__slider-range_position .noUi-tooltip'
     ) as NodeListOf<Element>;
 
+    this.counterVisibleCards = Numbers.sixteen;
+
     const copyAllProductCards = [...this.allProductCards];
     let filteringProductCards: IProductCardData[];
 
@@ -120,7 +124,7 @@ export class App extends ProductCard {
     }
 
     // console.log(a);
-    this.visibleProductCards = filteringProductCards;
+    this.curentRenderCards = filteringProductCards;
     this.sortProductCard(sortSelect, sectionCards);
   }
 
@@ -134,8 +138,7 @@ export class App extends ProductCard {
 
     while (index < productCards.length) {
       const card = productCards[index];
-      // console.log();
-      
+
       if (card[`${filterOption}`] > +maximumValue || card[`${filterOption}`] < +minimumValue) {
         productCards.splice(index, Numbers.one)[Numbers.zero];
       } else {
@@ -181,5 +184,23 @@ export class App extends ProductCard {
     }
 
     return productCards;
+  }
+
+  searchProductCards(event: Event) {
+    const searchCards = () =>  {
+      
+    }
+    // searchCards();
+    console.log(searchInput.value);
+   /*  const debounce = () {
+      let timeout: number;
+
+      return function (eventArguments: Event): void {
+        const callOnChange: (event: Event) => void = () => onChange(eventArguments);
+
+        <undefined>clearTimeout(timeout);
+        timeout = setTimeout(callOnChange, milliseconds);
+      };
+    }; */
   }
 }

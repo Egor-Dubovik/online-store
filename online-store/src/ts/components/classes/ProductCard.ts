@@ -3,14 +3,17 @@ import { AvailabilityOptions } from '../../types/card.types';
 import { Numbers, INITIAL_STEP } from '../../constants/numbers';
 import { SortingType } from '../../types/card.types';
 import { Sort } from '../../constants/strings';
+import { buttonShowMore, sectionCards} from '../../index';
 
 export class ProductCard implements IProductCard {
   readonly allProductCards: IProductCardData[];
-  public visibleProductCards: IProductCardData[];
+  public curentRenderCards: IProductCardData[];
+  public counterVisibleCards: number;
 
-  constructor(allProductCards: IProductCardData[], visibleProductCards: IProductCardData[]) {
+  constructor(allProductCards: IProductCardData[], curentRenderCards: IProductCardData[]) {
     this.allProductCards = allProductCards;
-    this.visibleProductCards = visibleProductCards;
+    this.curentRenderCards = curentRenderCards;
+    this.counterVisibleCards = Numbers.sixteen;
   }
 
   createProductRating(rating: number): string {
@@ -92,10 +95,18 @@ export class ProductCard implements IProductCard {
         </div>` as unknown) as HTMLDivElement;
   };
 
-  displayCards(sectionCards: HTMLElement, productCards: IProductCardData[]): void {
-    sectionCards.innerHTML = '';
+  displayCards(productCards: IProductCardData[], section = sectionCards): void {
+    section.innerHTML = '';
+    this.curentRenderCards = productCards;
 
-    for (let i = INITIAL_STEP; i < productCards.length; i++) {
+    if (productCards.length >= this.counterVisibleCards) {
+      buttonShowMore.classList.add('_active');
+    } else {
+      buttonShowMore.classList.remove('_active');
+      this.counterVisibleCards = this.curentRenderCards.length;
+    }
+
+    for (let i = INITIAL_STEP; i < this.counterVisibleCards; i++) {
       const product = productCards[i];
       const productCard = this.createСard(
         product.name,
@@ -110,8 +121,13 @@ export class ProductCard implements IProductCard {
         product.color,
         product.popular
       );
-      sectionCards.innerHTML += productCard;
+      section.innerHTML += productCard;
     }
+  }
+
+  showMore() {
+    this.counterVisibleCards += Numbers.sixteen;
+    this.displayCards(this.curentRenderCards);
   }
 
   sortProductCard(sortSelect: HTMLSelectElement, sectionCards: HTMLElement) {
@@ -122,17 +138,17 @@ export class ProductCard implements IProductCard {
     selectData[Numbers.zero] === Sort.year ? (sortingType = Sort.year) : (sortingType = Sort.price);
 
     if (selectData[Numbers.one] === Sort.ascending) {
-      sortProductCards = this.visibleProductCards.sort(
+      sortProductCards = this.curentRenderCards.sort(
         (firstCard, secondCard): number =>
           firstCard[`${sortingType}`] - secondCard[`${sortingType}`]
       );
     } else {
-      sortProductCards = this.visibleProductCards.sort(
+      sortProductCards = this.curentRenderCards.sort(
         (firstCard, secondCard): number =>
           secondCard[`${sortingType}`] - firstCard[`${sortingType}`]
       );
     }
 
-    this.displayCards(sectionCards, sortProductCards);
+    this.displayCards(sortProductCards, sectionCards);
   }
 }
