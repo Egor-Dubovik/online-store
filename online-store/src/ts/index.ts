@@ -29,11 +29,3 @@ document.addEventListener('click', app.eventHandling.bind(app));
 sortSelect.addEventListener('change', app.sortProductCard.bind(app, sortSelect, sectionCards));
 buttonShowMore.addEventListener('click', app.showMore.bind(app));
 searchInput.addEventListener('keyup', app.searchProductCards.bind(app));
-
-
-// const noUiConnect = document.querySelectorAll('.noUi-connect') as NodeListOf<Element>;
-// noUiConnect.forEach((content) =>
-//   content.addEventListener('transitionend', app.cardFiltering.bind(app))
-// );
-
-

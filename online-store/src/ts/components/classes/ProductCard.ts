@@ -6,9 +6,9 @@ import { Sort } from '../../constants/strings';
 import { buttonShowMore, sectionCards } from '../../index';
 
 export class ProductCard implements IProductCard {
+  public counterVisibleCards: number;
   readonly allProductCards: IProductCardData[];
   public curentRenderCards: IProductCardData[];
-  public counterVisibleCards: number;
 
   constructor(allProductCards: IProductCardData[], curentRenderCards: IProductCardData[]) {
     this.allProductCards = allProductCards;
@@ -57,7 +57,8 @@ export class ProductCard implements IProductCard {
     popular: boolean,
     favorite: boolean
   ): HTMLDivElement => {
-    let { text, icon, basketClass } = this.checkAvailability(amount);
+    const { text, icon } = this.checkAvailability(amount);
+    let { basketClass } = this.checkAvailability(amount);
     let cardClass: string;
 
     if (favorite) {
@@ -65,12 +66,12 @@ export class ProductCard implements IProductCard {
       basketClass += ' _active';
     } else {
       cardClass = 'cards__card card';
-    }  
+    }
 
     oldPrice ? (oldPrice = '$' + oldPrice) : oldPrice;
-  //   <li class="card__image-block">
-  //   ${color}
-  // </li>
+    //   <li class="card__image-block">
+    //   ${color}
+    // </li>
     return (`
           <div class="${cardClass}" data-color="${color}" data-popular="${popular}" data-brend="${brend}" data-year="${year}" data-price="${price} "data-src="${src}" data-ditails="${ditails.toString()}" data-name="${name}">
             <ul class="card__container">

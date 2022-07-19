@@ -30,7 +30,8 @@ export interface IProductCard {
     src: string,
     ditails: string[],
     color: string[],
-    popular: boolean
+    popular: boolean,
+    favorite: boolean
   ) => HTMLDivElement;
   displayCards: (productCards: IProductCardData[], sectionCards: HTMLElement) => void;
   checkAvailability: (amount: number) => AvailabilityOptions;
