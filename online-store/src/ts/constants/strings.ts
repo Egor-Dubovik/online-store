@@ -6,7 +6,7 @@ export enum Sort {
 
 export enum Filtering {
   price = 'price',
-  position = 'rating',
+  rating = 'rating',
   brend = 'brend',
   popular = 'popular',
   name = 'name',

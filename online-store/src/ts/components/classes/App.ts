@@ -1,8 +1,9 @@
 import { Filter } from './filter';
 import { IProductCardData } from '../../interfaces/product.interface';
-import { removeClasses, toggleClasses } from '../baseFunctions';
+import { removeClasses, toggleClasses } from '../base/baseFunctions';
+import { storage } from '../base/localStorage';
 import { INITIAL_STEP, SEARCH_TIME, Numbers } from '../../constants/numbers';
-
+import { launchRangeSlider } from '../range-slider';
 import {
   searchInput,
   basketList,
@@ -18,6 +19,11 @@ const navigationBlock = document.querySelector('.header__navigation') as HTMLEle
 const menuButton = document.querySelector('.icon-menu') as HTMLButtonElement;
 const searchForm = document.querySelector('.header__search-form') as HTMLFormElement;
 const infoList = document.querySelector('.header-top__info-list') as HTMLElement;
+const brendFilter = document.querySelector('.filter__select') as HTMLSelectElement;
+const popularFilter = document.querySelector('.filter__input_popular') as HTMLInputElement;
+const colorFilter = document.querySelectorAll(
+  '.filter__color-input'
+) as NodeListOf<HTMLInputElement>;
 
 export class App extends Filter {
   public basketAmount: number;
@@ -71,7 +77,7 @@ export class App extends Filter {
     }
     // filtering
     if (targetElement.closest('.filters__button_apply')) {
-      this.filterProductCards();
+      this.saveAndFilterData();
     }
 
     // add card to basket ---------------------------------------------------
@@ -188,5 +194,45 @@ export class App extends Filter {
 
     const searchDebounce: () => void = debounce();
     searchDebounce();
+  }
+
+  saveData(priceFilter: NodeListOf<HTMLElement>, positionFilter: NodeListOf<HTMLElement>) {
+    this.filters.brend = brendFilter.value;
+    this.filters.price.minimum = priceFilter[0].textContent;
+    this.filters.price.maximum = priceFilter[1].textContent;
+    this.filters.rating.minimum = positionFilter[0].textContent;
+    this.filters.rating.maximum = positionFilter[1].textContent;
+    this.filters.popular = `${popularFilter.checked}`;
+    storage.set('filters', JSON.stringify(this.filters));
+  }
+
+  saveAndFilterData(): void {
+    const priceFilter = document.querySelectorAll(
+      '.filter__slider-range_price .noUi-tooltip'
+    ) as NodeListOf<HTMLElement>;
+    const positionFilter = document.querySelectorAll(
+      '.filter__slider-range_position .noUi-tooltip'
+    ) as NodeListOf<HTMLElement>;
+    this.filterProductCards(brendFilter, popularFilter, colorFilter, priceFilter, positionFilter);
+    this.saveData(priceFilter, positionFilter);
+  }
+
+  init(sortSelect: HTMLSelectElement, sectionCards: HTMLElement) {
+    const filtersData = JSON.parse(storage.get('filters'));
+
+    brendFilter.value = filtersData.brend;
+    launchRangeSlider(
+      +filtersData.price.minimum,
+      +filtersData.price.maximum,
+      +filtersData.rating.minimum,
+      +filtersData.rating.maximum
+    );
+    colorFilter.forEach((color) => {
+      if (color.value === filtersData.color) color.checked = true;
+    });
+    if (filtersData.popular === 'true') popularFilter.checked = true;
+
+    this.sortProductCard(sortSelect, sectionCards);
+    this.saveAndFilterData();
   }
 }

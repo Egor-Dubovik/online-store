@@ -36,3 +36,18 @@ export interface IProductCard {
   displayCards: (productCards: IProductCardData[], sectionCards: HTMLElement) => void;
   checkAvailability: (amount: number) => AvailabilityOptions;
 }
+
+export interface IFilters {
+  brend: string;
+  color: string;
+  price: {
+    minimum: string | null;
+    maximum: string | null;
+  };
+  rating: {
+    minimum: string | null;
+    maximum: string | null;
+  };
+  popular: string;
+  sort: string;
+}

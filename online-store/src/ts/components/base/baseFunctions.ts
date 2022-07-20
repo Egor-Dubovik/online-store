@@ -1,4 +1,4 @@
-import { INITIAL_STEP } from '../constants/numbers';
+import { INITIAL_STEP } from '../../constants/numbers';
 
 export function toggleClasses(array: HTMLElement[], className: string): void {
   for (let i = INITIAL_STEP; i < array.length; i++) {

@@ -108,7 +108,7 @@ export class ProductCard implements IProductCard {
     section.innerHTML = '';
     this.curentRenderCards = productCards;
 
-    if (productCards.length >= this.counterVisibleCards) {
+    if (productCards.length > this.counterVisibleCards) {
       buttonShowMore.classList.add('_active');
     } else {
       buttonShowMore.classList.remove('_active');

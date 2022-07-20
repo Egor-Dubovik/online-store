@@ -1,29 +1,41 @@
 import { sortSelect, sectionCards } from '../../index';
 import { FilteringType } from '../../types/card.types';
-import { IProductCardData } from '../../interfaces/product.interface';
+import { IProductCardData, IFilters } from '../../interfaces/product.interface';
 import { Numbers } from '../../constants/numbers';
 import { Filtering } from '../../constants/strings';
 import { ProductCard } from './ProductCard';
 import { INITIAL_STEP } from '../../constants/numbers';
 
 export class Filter extends ProductCard {
+  filters: IFilters;
+
   constructor(allProductCards: IProductCardData[], curentRenderCards: IProductCardData[]) {
     super(allProductCards, curentRenderCards);
+    this.filters = {
+      brend: 'all',
+      color: '',
+      price: {
+        minimum: '0',
+        maximum: '6500',
+      },
+      rating: {
+        minimum: '0',
+        maximum: '5',
+      },
+      popular: 'false',
+      sort: 'year,ascending',
+      basketAmount: '0',
+      baketItems: '',
+    };
   }
 
-  filterProductCards() {
-    const brendFilter = document.querySelector('.filter__select') as HTMLSelectElement;
-    const popularFilter = document.querySelector('.filter__input_popular') as HTMLInputElement;
-    const colorFilter = document.querySelectorAll(
-      '.filter__color-input'
-    ) as NodeListOf<HTMLInputElement>;
-    const priceFilter = document.querySelectorAll(
-      '.filter__slider-range_price .noUi-tooltip'
-    ) as NodeListOf<Element>;
-    const positionFilter = document.querySelectorAll(
-      '.filter__slider-range_position .noUi-tooltip'
-    ) as NodeListOf<Element>;
-
+  filterProductCards(
+    brendFilter: HTMLSelectElement,
+    popularFilter: HTMLInputElement,
+    colorFilter: NodeListOf<HTMLInputElement>,
+    priceFilter: NodeListOf<Element>,
+    positionFilter: NodeListOf<Element>
+  ) {
     this.counterVisibleCards = Numbers.sixteen;
 
     const copyAllProductCards = [...this.allProductCards];
@@ -39,7 +51,7 @@ export class Filter extends ProductCard {
     filteringProductCards = this.rangeSliderFiltering(
       positionFilter[Numbers.zero].textContent as string,
       positionFilter[Numbers.one].textContent as string,
-      Filtering.position,
+      Filtering.rating,
       filteringProductCards
     );
 
@@ -84,6 +96,7 @@ export class Filter extends ProductCard {
         ++index;
       }
     }
+
     return productCards;
   }
 
@@ -103,6 +116,7 @@ export class Filter extends ProductCard {
         ++index;
       }
     }
+
     return productCards;
   }
 
@@ -119,6 +133,7 @@ export class Filter extends ProductCard {
       }
     }
 
+    this.filters.color = color;
     return productCards;
   }
 }

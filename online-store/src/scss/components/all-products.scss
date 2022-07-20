@@ -113,7 +113,25 @@
   color: $blueColor;
   border: 2px solid $blueColor;
 }
+.filters__button_apply {
+  width: 100%;
+  background-color: $blueColor;
+  border-color: $blueColor;
+  color: #fff;
+  @media (max-width: $tablet) {
+    padding: rem(25) 0;
+    font-size: rem(18);
+  }
+  @media (max-width: $mobileSmall) {
+    padding: rem(15) 0;
+  }
+}
+.filters__button_apply:hover {
+  background-color: #1176dd;
+  color: #fff;
+}
 .filters__body {
+  margin-bottom: rem(20);
 }
 .filters__body li:not(:last-child) {
   margin-bottom: rem(20);

@@ -1,5 +1,4 @@
 import './components/slider';
-import './components/range-slider';
 import '../scss/style.scss';
 import cardJson from '../assets/products.json';
 import { App } from './components/classes/App';
@@ -18,14 +17,13 @@ export const basketPopap = document.querySelector('.popap_basket-full') as HTMLD
 export const popapData = document.querySelector('.info-popap__data') as HTMLElement;
 export const popapImage = document.querySelector('.info-popap__image') as HTMLElement;
 
-// const productCards: IProductCardData[] = cardJson.laptops;
 const app = new App(cardJson.laptops, cardJson.laptops);
 
-// First cards rendering
-app.sortProductCard(sortSelect, sectionCards);
+app.init(sortSelect, sectionCards);
 
 // Listeners -------------------------------------------------------------------
 document.addEventListener('click', app.eventHandling.bind(app));
 sortSelect.addEventListener('change', app.sortProductCard.bind(app, sortSelect, sectionCards));
 buttonShowMore.addEventListener('click', app.showMore.bind(app));
 searchInput.addEventListener('keyup', app.searchProductCards.bind(app));
+// window.addEventListener('beforeunload', app.saveData)
