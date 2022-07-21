@@ -1,5 +1,4 @@
 import './components/slider';
-import '../scss/style.scss';
 import cardJson from '../assets/products.json';
 import { App } from './components/classes/App';
 
@@ -26,7 +25,5 @@ document.addEventListener('click', app.eventHandling.bind(app));
 sortSelect.addEventListener('change', app.sortProductCard.bind(app, sortSelect, sectionCards));
 buttonShowMore.addEventListener('click', app.showMore.bind(app));
 searchInput.addEventListener('keyup', app.searchProductCards.bind(app));
-// window.addEventListener('beforeunload', app.saveData)
-const buttonClearFilters = document.querySelector('.filters__button_clear') as HTMLButtonElement;
 
-buttonClearFilters.addEventListener('click', app.clearFilters.bind(app));
+import '../scss/style.scss';

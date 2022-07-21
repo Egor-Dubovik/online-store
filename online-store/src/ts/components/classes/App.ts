@@ -15,6 +15,7 @@ import {
 import { Filtering } from '../../constants/strings';
 
 const searchButton = document.querySelector('.header-search__button') as HTMLButtonElement;
+const basketPrice = document.querySelector('.header-basket__total-price span') as HTMLButtonElement;
 const navigationBlock = document.querySelector('.header__navigation') as HTMLElement;
 const menuButton = document.querySelector('.icon-menu') as HTMLButtonElement;
 const searchForm = document.querySelector('.header__search-form') as HTMLFormElement;
@@ -34,6 +35,7 @@ export class App extends Filter {
     super(allProductCards, curentRenderCards);
     this.basketAmount = 0;
     this.basket = {
+      price: '0',
       amount: '0',
       items: '',
     };
@@ -58,7 +60,7 @@ export class App extends Filter {
 
     if (targetElement.closest('.header-search__button_clean')) {
       searchInput.value = '';
-      this.searchProductCards();
+      this.clearFilters();
     }
 
     if (targetElement.closest('.icon-menu')) {
@@ -89,6 +91,8 @@ export class App extends Filter {
     // add card to basket ---------------------------------------------------
     if (targetElement.closest('.card__add-to-basket')) {
       const card = targetElement.closest('.card') as HTMLDivElement;
+      const cardPrice = card.dataset.price as string;
+
       // check empty rroduct card
       if (targetElement.closest('._empty')) {
         const emptyPopapData = `
@@ -134,8 +138,10 @@ export class App extends Filter {
           </div>
         </li>`;
 
-        this.basketAmount += Numbers.one;
+        this.basket.price = `${+this.basket.price + +cardPrice}`;
+        basketPrice.textContent = this.basket.price;
 
+        this.basketAmount += Numbers.one;
         basketAmount.forEach((amount) => (amount.textContent = `${this.basketAmount}`));
       } else {
         const basketItems = document.querySelectorAll(
@@ -152,6 +158,9 @@ export class App extends Filter {
             card.classList.remove('_active');
             targetElement.classList.remove('_active');
 
+            this.basket.price = `${+this.basket.price - +cardPrice}`;
+            basketPrice.textContent = this.basket.price;
+
             this.basketAmount -= Numbers.one;
             basketAmount.forEach((amount) => (amount.textContent = `${this.basketAmount}`));
           }
@@ -163,6 +172,9 @@ export class App extends Filter {
     if (targetElement.closest('.popap__button-close')) {
       targetElement.closest('.popap')?.classList.remove('_active');
     }
+    // clear
+    if (targetElement.closest('.filters__button_clear')) this.clearFilters();
+    if (targetElement.closest('.adjusting-view__button')) this.clearSettings();
   }
 
   changeCardStatus(card: HTMLDivElement, status: boolean) {
@@ -257,6 +269,9 @@ export class App extends Filter {
     console.log(basketsData);
 
     if (basketsData !== null) {
+      this.basket.price = basketsData.price;
+      basketPrice.textContent = basketsData.price;
+
       this.allProductCards.forEach((card) => {
         if (basketsData.items.includes(card.name)) {
           this.basketAmount = +basketsData.amount;
@@ -310,7 +325,7 @@ export class App extends Filter {
       if (color.checked) color.checked = false;
     });
 
-    rangeSliders.forEach((slider: slider) => {
+    rangeSliders.forEach((slider) => {
       if (slider.closest('.filter__slider-range_price')) {
         slider.noUiSlider.set([0, 6500]);
       } else {
@@ -319,8 +334,10 @@ export class App extends Filter {
     });
     this.saveAndFilterData();
   }
-}
 
-type slider = {
-  noUiSlider: () => number;
-};
+  clearSettings() {
+    localStorage.clear();
+    this.clearFilters();
+    location.reload();
+  }
+}

@@ -237,39 +237,6 @@
 }
 .filter__slider-range_position {
 }
-.noUi-horizontal .noUi-handle {
-  width: rem(20);
-  height: rem(23);
-  cursor: pointer;
-  @media (max-width: $tablet) {
-    height: rem(40);
-    width: rem(35);
-  }
-  @media (max-width: $mobileSmall) {
-    height: rem(35);
-    width: rem(25);
-  }
-}
-.noUi-target {
-  height: rem(15);
-  @media (max-width: $tablet) {
-    height: rem(30);
-  }
-  @media (max-width: $mobileSmall) {
-    height: rem(25);
-  }
-}
-.noUi-horizontal .noUi-tooltip {
-  bottom: -180%;
-  @media (max-width: $tablet) {
-    bottom: -100%;
-  }
-}
-.noUi-tooltip {
-  @media (max-width: $tablet) {
-    font-size: 18px;
-  }
-}
 .filter__input {
   width: rem(20);
   height: rem(20);
@@ -332,7 +299,7 @@
 // cards ---------------------------------------------------------
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(234px, 1fr));
+  grid-template-columns: repeat(auto-fit, rem(266));
   grid-auto-rows: min-content;
   gap: rem(15);
   @media (max-width: $tablet) {
@@ -509,8 +476,4 @@
 }
 .all-products__button._active:hover {
   background-color: #1176dd;
-}
-
-.noUi-connect {
-  transition: all 0.1s;
 }

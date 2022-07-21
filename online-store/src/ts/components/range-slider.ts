@@ -16,6 +16,7 @@ export const launchRangeSlider = (
       noUiSlider.create(slider, {
         start: [minimumPrace, maximumPrice],
         connect: true,
+        margin: 1000,
         tooltips: {
           to: function (numericValue) {
             return numericValue.toFixed(0);
@@ -32,6 +33,7 @@ export const launchRangeSlider = (
       noUiSlider.create(slider, {
         start: [minimumPosition, maximumPosition],
         connect: true,
+        margin: 0.5,
         tooltips: {
           to: function (numericValue) {
             return numericValue.toFixed(0);

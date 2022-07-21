@@ -53,6 +53,7 @@ export interface IFilters {
 }
 
 export interface IBasket {
+  price: string;
   amount: string;
   items: string;
 }
