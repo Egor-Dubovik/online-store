@@ -27,3 +27,6 @@ sortSelect.addEventListener('change', app.sortProductCard.bind(app, sortSelect, 
 buttonShowMore.addEventListener('click', app.showMore.bind(app));
 searchInput.addEventListener('keyup', app.searchProductCards.bind(app));
 // window.addEventListener('beforeunload', app.saveData)
+const buttonClearFilters = document.querySelector('.filters__button_clear') as HTMLButtonElement;
+
+buttonClearFilters.addEventListener('click', app.clearFilters.bind(app));

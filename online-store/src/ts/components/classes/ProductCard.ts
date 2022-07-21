@@ -71,7 +71,7 @@ export class ProductCard implements IProductCard {
     oldPrice ? (oldPrice = '$' + oldPrice) : oldPrice;
 
     return (`
-          <div class="${cardClass}" data-color="${color}" data-popular="${popular}" data-brend="${brend}" data-year="${year}" data-price="${price} "data-src="${src}" data-ditails="${ditails.toString()}" data-name="${name}">
+          <div class="${cardClass}" data-color="${color}" data-popular="${popular}" data-brend="${brend}" data-year="${year}" data-price="${price} "data-src="${src}" data-ditails="${ditails.toString()}" data-name="${name}" data-favorite="${favorite}">
             <ul class="card__container">
               <li class="card__availability">
                 <img src="${icon}" alt="availability icon">

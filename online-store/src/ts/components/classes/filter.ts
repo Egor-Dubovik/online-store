@@ -24,8 +24,6 @@ export class Filter extends ProductCard {
       },
       popular: 'false',
       sort: 'year,ascending',
-      basketAmount: '0',
-      baketItems: '',
     };
   }
 
@@ -133,7 +131,6 @@ export class Filter extends ProductCard {
       }
     }
 
-    this.filters.color = color;
     return productCards;
   }
 }

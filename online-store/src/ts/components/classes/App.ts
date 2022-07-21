@@ -1,5 +1,5 @@
 import { Filter } from './filter';
-import { IProductCardData } from '../../interfaces/product.interface';
+import { IProductCardData, IBasket } from '../../interfaces/product.interface';
 import { removeClasses, toggleClasses } from '../base/baseFunctions';
 import { storage } from '../base/localStorage';
 import { INITIAL_STEP, SEARCH_TIME, Numbers } from '../../constants/numbers';
@@ -24,13 +24,19 @@ const popularFilter = document.querySelector('.filter__input_popular') as HTMLIn
 const colorFilter = document.querySelectorAll(
   '.filter__color-input'
 ) as NodeListOf<HTMLInputElement>;
+const rangeSliders = document.querySelectorAll('.filter__slider-range') as NodeListOf<HTMLElement>;
 
 export class App extends Filter {
   public basketAmount: number;
+  public basket: IBasket;
 
   constructor(allProductCards: IProductCardData[], curentRenderCards: IProductCardData[]) {
     super(allProductCards, curentRenderCards);
     this.basketAmount = 0;
+    this.basket = {
+      amount: '0',
+      items: '',
+    };
   }
 
   toggleInputSearch(): void {
@@ -95,7 +101,7 @@ export class App extends Filter {
         return;
       }
 
-      if (!targetElement.closest('._active')) {
+      if (card.dataset.favorite === 'false') {
         if (this.basketAmount >= Numbers.five) {
           const fullPopapData = `<p class="info-popap__data">I'm so sory, but you took too much items!</p>`;
           const fullPopapImg = 'full.jpg';
@@ -106,6 +112,7 @@ export class App extends Filter {
         }
 
         this.changeCardStatus(card, true);
+        card.dataset.favorite = 'true';
 
         card.classList.add('_active');
         targetElement.classList.add('_active');
@@ -128,6 +135,7 @@ export class App extends Filter {
         </li>`;
 
         this.basketAmount += Numbers.one;
+
         basketAmount.forEach((amount) => (amount.textContent = `${this.basketAmount}`));
       } else {
         const basketItems = document.querySelectorAll(
@@ -135,6 +143,8 @@ export class App extends Filter {
         ) as NodeListOf<HTMLLIElement>;
 
         this.changeCardStatus(card, false);
+        card.classList.remove('_active');
+        targetElement.classList.remove('_active');
 
         basketItems.forEach((item) => {
           if (item.dataset.name === card.dataset.name) {
@@ -147,6 +157,7 @@ export class App extends Filter {
           }
         });
       }
+      this.saveBasketData();
     }
 
     if (targetElement.closest('.popap__button-close')) {
@@ -155,6 +166,7 @@ export class App extends Filter {
   }
 
   changeCardStatus(card: HTMLDivElement, status: boolean) {
+    card.dataset.favorite = '' + status;
     this.allProductCards.forEach((productCard) => {
       if (card.dataset.name === productCard.name) productCard.favorite = status;
     });
@@ -196,13 +208,22 @@ export class App extends Filter {
     searchDebounce();
   }
 
-  saveData(priceFilter: NodeListOf<HTMLElement>, positionFilter: NodeListOf<HTMLElement>) {
+  saveData(priceFilter: NodeListOf<HTMLElement>, positionFilter: NodeListOf<HTMLElement>): void {
     this.filters.brend = brendFilter.value;
     this.filters.price.minimum = priceFilter[0].textContent;
     this.filters.price.maximum = priceFilter[1].textContent;
     this.filters.rating.minimum = positionFilter[0].textContent;
     this.filters.rating.maximum = positionFilter[1].textContent;
-    this.filters.popular = `${popularFilter.checked}`;
+    this.filters.popular = '' + popularFilter.checked;
+
+    colorFilter.forEach((color) => {
+      if (color.checked) {
+        this.filters.color = color.value;
+      } else {
+        this.filters.color = '';
+      }
+    });
+
     storage.set('filters', JSON.stringify(this.filters));
   }
 
@@ -217,22 +238,89 @@ export class App extends Filter {
     this.saveData(priceFilter, positionFilter);
   }
 
+  saveBasketData() {
+    let itemsName = '';
+    const basketItems = Array.from(basketList.children) as HTMLLIElement[];
+
+    basketItems.forEach((item) => {
+      if (item.dataset.name) itemsName += item.dataset.name;
+    });
+
+    this.basket.items = itemsName;
+    this.basket.amount = basketAmount[Numbers.zero].textContent as string;
+    storage.set('basket', JSON.stringify(this.basket));
+  }
+
   init(sortSelect: HTMLSelectElement, sectionCards: HTMLElement) {
     const filtersData = JSON.parse(storage.get('filters'));
+    const basketsData: IBasket = JSON.parse(storage.get('basket'));
+    console.log(basketsData);
 
-    brendFilter.value = filtersData.brend;
-    launchRangeSlider(
-      +filtersData.price.minimum,
-      +filtersData.price.maximum,
-      +filtersData.rating.minimum,
-      +filtersData.rating.maximum
-    );
-    colorFilter.forEach((color) => {
-      if (color.value === filtersData.color) color.checked = true;
-    });
-    if (filtersData.popular === 'true') popularFilter.checked = true;
+    if (basketsData !== null) {
+      this.allProductCards.forEach((card) => {
+        if (basketsData.items.includes(card.name)) {
+          this.basketAmount = +basketsData.amount;
+          basketAmount[Numbers.zero].textContent = basketsData.amount;
+          basketAmount[Numbers.one].textContent = basketsData.amount;
+          card.favorite = true;
+          console.log(card);
+          basketList.innerHTML += `
+          <li class="basket-list__item" data-name="${card.name}">
+            <p class="basket-list__item-amount"><span>1</span> x</p>
+            <div class="basket-list__item-image-block">
+              <img src="${card.src}" class="basket-list__item-image">
+            </div>
+            <p class="basket-list__item-description">${card.ditails}</p>
+            <div class="basket-list__item-buttons">
+              <button class="basket-list__itebasket-list__item-button_remove">
+                <img src="./assets/images/svg/mycart-remove.svg" alt="icon remove carts item">
+              </button>
+              <button class="basket-list__itebasket-list__item-button_edit">
+                <img src="./assets/images/svg/mycart-edit.svg" alt="icon edit carts item">
+              </button>
+            </div>
+          </li>`;
+        }
+      });
+    }
+
+    if (filtersData !== null) {
+      brendFilter.value = filtersData.brend;
+      launchRangeSlider(
+        +filtersData.price.minimum,
+        +filtersData.price.maximum,
+        +filtersData.rating.minimum,
+        +filtersData.rating.maximum
+      );
+      colorFilter.forEach((color) => {
+        if (color.value === filtersData.color) color.checked = true;
+      });
+      if (filtersData.popular === 'true') popularFilter.checked = true;
+    } else {
+      launchRangeSlider();
+    }
 
     this.sortProductCard(sortSelect, sectionCards);
     this.saveAndFilterData();
   }
+
+  clearFilters() {
+    brendFilter.value = 'all';
+    colorFilter.forEach((color) => {
+      if (color.checked) color.checked = false;
+    });
+
+    rangeSliders.forEach((slider: slider) => {
+      if (slider.closest('.filter__slider-range_price')) {
+        slider.noUiSlider.set([0, 6500]);
+      } else {
+        slider.noUiSlider.set([0, 5]);
+      }
+    });
+    this.saveAndFilterData();
+  }
 }
+
+type slider = {
+  noUiSlider: () => number;
+};

@@ -51,3 +51,8 @@ export interface IFilters {
   popular: string;
   sort: string;
 }
+
+export interface IBasket {
+  amount: string;
+  items: string;
+}
