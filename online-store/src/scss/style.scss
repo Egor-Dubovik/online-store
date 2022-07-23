@@ -1,24 +1,20 @@
 @use "sass:math";
-
 @import "./base/nullstyle";
 @import "./base/iconFonts";
 @import "./base/mixins";
 @import "./base/constants";
 @import url(https://fonts.googleapis.com/css?family=Poppins:300,regular,500,600,700);
 
-// Default Font
 $fontFamily: "Poppins", sans-serif;
 $fontSize: rem(13);
 
-// break points
 $minWidth: 320;
 $maxWidth: 1920;
 $maxWidthContainer: 1370;
 $containerPadding: 30;
-// Width of the first breakpoint
+
 $containerWidth: $maxWidthContainer + $containerPadding;
 
-// break points
 $pc: em($containerWidth);
 $tablet: em(991.98);
 $mobile: em(767.98);
@@ -30,7 +26,7 @@ body {
   font-family: $fontFamily;
   font-size: $fontSize;
   font-weight: 400;
-  line-height: 153.8%; //20px
+  line-height: 153.8%;
 }
 
 h1 {
@@ -71,7 +67,6 @@ h5 {
   > main {
     flex: 1 1 auto;
   }
-  //Фикс для слайдеров
   > * {
     min-width: 0;
   }
@@ -88,14 +83,13 @@ h5 {
   }
 }
 
-@import "./components/header";
-@import "./components/slider";
-@import "./components/all-products";
-
-@import "./components/footer";
-@import "./components/popap";
-@import "./components/noUiSlider";
-
 ._lock {
   overflow: hidden;
 }
+
+@import "./components/header";
+@import "./components/slider";
+@import "./components/all-products";
+@import "./components/footer";
+@import "./components/popap";
+@import "./components/noUiSlider";

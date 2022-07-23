@@ -32,7 +32,6 @@
 ._icon-right-arrow {
   color: #fff;
 }
-// info-list
 .header-top__info-list {
   display: none;
 }
@@ -96,7 +95,6 @@
 .contacts-list__item-link:hover {
   text-decoration: underline;
 }
-//-------------------------------------------------------------------------------
 .header-top__location {
   font-size: rem(12);
   font-weight: 600;
@@ -130,7 +128,6 @@
 .contacts__social_network:hover {
   color: $blueColor;
 }
-// header__main =====================================================================
 .header__main .header__container {
   position: relative;
   display: flex;
@@ -192,7 +189,6 @@
   transition: 0.4s ease-in;
 }
 
-// actions
 .actions-header {
   display: flex;
   align-items: center;
@@ -233,7 +229,7 @@
 .header-search__button._active {
   background-image: $closeSearchIconURL;
 }
-// .header-basket
+
 .header-basket {
   position: relative;
   z-index: 4;
@@ -269,13 +265,9 @@
   border: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.14);
   transition: all 0.3s ease;
-  // visibility: hidden;
-  // opacity: 0;
 }
 .header-basket:hover .header-basket__body {
   @media (min-width: $mobile) {
-    // visibility: visible;
-    // opacity: 1;
     display: flex;
   }
 }
@@ -416,7 +408,7 @@
 .header-basket__button_checkout-paypal span {
   margin-right: rem(5);
 }
-//---------------------------------------------
+
 .actions-header__item_user {
   position: relative;
   z-index: 4;
@@ -432,7 +424,7 @@
   height: 100%;
   object-fit: cover;
 }
-// icon-menu
+
 .icon-menu {
   display: none;
   position: relative;
@@ -490,7 +482,6 @@
   transition: 0.5s ease-in;
 }
 
-// media
 @media (max-width: $tablet) {
   .header-top__location {
     display: none;
@@ -499,7 +490,6 @@
     padding: rem(8);
   }
 }
-
 @media (max-width: $mobile) {
   .header__main .header__container {
     height: rem(80);
@@ -543,7 +533,6 @@
     margin-right: rem(20);
   }
 }
-
 @media (max-width: $mobileSmall) {
   .contacts__phone {
     display: none;
