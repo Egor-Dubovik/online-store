@@ -5,6 +5,17 @@ import { Numbers } from '../../constants/numbers';
 import { Filtering } from '../../constants/strings';
 import { ProductCard } from './ProductCard';
 import { INITIAL_STEP, MAX_VISIBLE_CARDS_AMOUNT } from '../../constants/numbers';
+import { brendFilter, colorFilter, popularFilter } from './App';
+import { storage } from '../base/localStorage';
+import { BrendOptions } from '../../constants/strings';
+import {
+  MAXIMUM_PRICE,
+  MINIMUM_POCITION,
+  MAXIMUM_POCITION,
+  MINIMUM_PRICE,
+} from '../../constants/numbers';
+
+const rangeSliders = document.querySelectorAll('.filter__slider-range') as NodeListOf<HTMLElement>;
 
 export class Filter extends ProductCard {
   filters: IFilters;
@@ -132,5 +143,49 @@ export class Filter extends ProductCard {
     }
 
     return productCards;
+  }
+
+  saveData(priceFilter: NodeListOf<HTMLElement>, positionFilter: NodeListOf<HTMLElement>): void {
+    this.filters.brend = brendFilter.value;
+    this.filters.price.minimum = priceFilter[Numbers.zero].textContent as string;
+    this.filters.price.maximum = priceFilter[Numbers.one].textContent as string;
+    this.filters.rating.minimum = positionFilter[Numbers.zero].textContent as string;
+    this.filters.rating.maximum = positionFilter[Numbers.one].textContent as string;
+
+    this.filters.popular = '' + popularFilter.checked;
+
+    colorFilter.forEach((color: HTMLInputElement): void => {
+      this.filters.color = '';
+      if (color.checked) this.filters.color = color.value;
+    });
+
+    storage.set('filters', JSON.stringify(this.filters));
+  }
+
+  saveAndFilterData(): void {
+    const priceFilter = document.querySelectorAll(
+      '.filter__slider-range_price .noUi-tooltip'
+    ) as NodeListOf<HTMLElement>;
+    const positionFilter = document.querySelectorAll(
+      '.filter__slider-range_position .noUi-tooltip'
+    ) as NodeListOf<HTMLElement>;
+    this.filterProductCards(brendFilter, popularFilter, colorFilter, priceFilter, positionFilter);
+    this.saveData(priceFilter, positionFilter);
+  }
+
+  clearFilters(): void {
+    brendFilter.value = BrendOptions.all;
+    colorFilter.forEach((color: HTMLInputElement): void => {
+      if (color.checked) color.checked = false;
+    });
+
+    rangeSliders.forEach((slider: HTMLElement): void => {
+      if (slider.closest('.filter__slider-range_price')) {
+        slider.noUiSlider.set([MINIMUM_PRICE, MAXIMUM_PRICE]);
+      } else {
+        slider.noUiSlider.set([MINIMUM_POCITION, MAXIMUM_POCITION]);
+      }
+    });
+    this.saveAndFilterData();
   }
 }

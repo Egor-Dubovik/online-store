@@ -5,10 +5,6 @@ import { storage } from '../base/localStorage';
 import {
   INITIAL_STEP,
   SEARCH_TIME,
-  MAXIMUM_PRICE,
-  MINIMUM_POCITION,
-  MAXIMUM_POCITION,
-  MINIMUM_PRICE,
   MAX_VISIBLE_CARDS_AMOUNT,
   Numbers,
 } from '../../constants/numbers';
@@ -21,7 +17,7 @@ import {
   popapData,
   popapImage,
 } from '../../index';
-import { Filtering, BrendOptions } from '../../constants/strings';
+import { Filtering } from '../../constants/strings';
 
 const searchButton = document.querySelector('.header-search__button') as HTMLButtonElement;
 const basketPrice = document.querySelector('.header-basket__total-price span') as HTMLButtonElement;
@@ -29,12 +25,11 @@ const navigationBlock = document.querySelector('.header__navigation') as HTMLEle
 const menuButton = document.querySelector('.icon-menu') as HTMLButtonElement;
 const searchForm = document.querySelector('.header__search-form') as HTMLFormElement;
 const infoList = document.querySelector('.header-top__info-list') as HTMLElement;
-const brendFilter = document.querySelector('.filter__select') as HTMLSelectElement;
-const popularFilter = document.querySelector('.filter__input_popular') as HTMLInputElement;
-const colorFilter = document.querySelectorAll(
+export const brendFilter = document.querySelector('.filter__select') as HTMLSelectElement;
+export const popularFilter = document.querySelector('.filter__input_popular') as HTMLInputElement;
+export const colorFilter = document.querySelectorAll(
   '.filter__color-input'
 ) as NodeListOf<HTMLInputElement>;
-const rangeSliders = document.querySelectorAll('.filter__slider-range') as NodeListOf<HTMLElement>;
 
 export class App extends Filter {
   public basketAmount: number;
@@ -201,7 +196,7 @@ export class App extends Filter {
 
   searchProductCards(): void {
     const searchCards = (): void => {
-      const copyAllProductCards = [...this.curentRenderCards];
+      const copyAllProductCards = [...this.allProductCards];
       let index = INITIAL_STEP;
 
       while (index < copyAllProductCards.length) {
@@ -228,34 +223,6 @@ export class App extends Filter {
 
     const searchDebounce: () => void = debounce();
     searchDebounce();
-  }
-
-  saveData(priceFilter: NodeListOf<HTMLElement>, positionFilter: NodeListOf<HTMLElement>): void {
-    this.filters.brend = brendFilter.value;
-    this.filters.price.minimum = priceFilter[Numbers.zero].textContent as string;
-    this.filters.price.maximum = priceFilter[Numbers.one].textContent as string;
-    this.filters.rating.minimum = positionFilter[Numbers.zero].textContent as string;
-    this.filters.rating.maximum = positionFilter[Numbers.one].textContent as string;
-
-    this.filters.popular = '' + popularFilter.checked;
-
-    colorFilter.forEach((color: HTMLInputElement): void => {
-      this.filters.color = '';
-      if (color.checked) this.filters.color = color.value;
-    });
-
-    storage.set('filters', JSON.stringify(this.filters));
-  }
-
-  saveAndFilterData(): void {
-    const priceFilter = document.querySelectorAll(
-      '.filter__slider-range_price .noUi-tooltip'
-    ) as NodeListOf<HTMLElement>;
-    const positionFilter = document.querySelectorAll(
-      '.filter__slider-range_position .noUi-tooltip'
-    ) as NodeListOf<HTMLElement>;
-    this.filterProductCards(brendFilter, popularFilter, colorFilter, priceFilter, positionFilter);
-    this.saveData(priceFilter, positionFilter);
   }
 
   saveBasketData(): void {
@@ -323,22 +290,6 @@ export class App extends Filter {
     }
 
     this.sortProductCard(sortSelect, sectionCards);
-    this.saveAndFilterData();
-  }
-
-  clearFilters(): void {
-    brendFilter.value = BrendOptions.all;
-    colorFilter.forEach((color: HTMLInputElement): void => {
-      if (color.checked) color.checked = false;
-    });
-
-    rangeSliders.forEach((slider: HTMLElement): void => {
-      if (slider.closest('.filter__slider-range_price')) {
-        slider.noUiSlider.set([MINIMUM_PRICE, MAXIMUM_PRICE]);
-      } else {
-        slider.noUiSlider.set([MINIMUM_POCITION, MAXIMUM_POCITION]);
-      }
-    });
     this.saveAndFilterData();
   }
 
