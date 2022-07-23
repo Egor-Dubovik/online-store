@@ -1,4 +1,4 @@
-import { IProductCardData, IProductCard, IСard } from '../../interfaces/product.interface';
+import { IProductCardData, IProductCard } from '../../interfaces/product.interface';
 import { AvailabilityOptions } from '../../types/card.types';
 import { Numbers, INITIAL_STEP, MAX_VISIBLE_CARDS_AMOUNT } from '../../constants/numbers';
 import { SortingType } from '../../types/card.types';
@@ -43,35 +43,30 @@ export class ProductCard implements IProductCard {
     return { text: availabilityText, icon: availabilityIcon, basketClass: basketClass };
   }
 
-  createСard(
-    name: string,
-    brend: string,
-    price: number,
-    oldPrice: number | string,
-    year: number,
-    rating: number,
-    amount: number,
-    src: string,
-    details: string[],
-    color: string[],
-    popular: boolean,
-    favorite: boolean
-  ) {
-    const { text, icon } = this.checkAvailability(amount);
-    let { basketClass } = this.checkAvailability(amount);
+  createСard(productData: IProductCardData): HTMLDivElement {
+    const { text, icon } = this.checkAvailability(productData.amount);
+    let { basketClass } = this.checkAvailability(productData.amount);
     let cardClass: string;
 
     cardClass = 'cards__card card';
 
-    if (favorite) {
+    if (productData.favorite) {
       cardClass += ' _active';
       basketClass += ' _active';
     }
 
-    oldPrice ? (oldPrice = '$' + oldPrice) : oldPrice;
+    productData.oldPrice
+      ? (productData.oldPrice = '$' + productData.oldPrice)
+      : productData.oldPrice;
 
     return (`
-          <div class="${cardClass}" data-color="${color}" data-popular="${popular}" data-brend="${brend}" data-year="${year}" data-price="${price} "data-src="${src}" data-details="${details.toString()}" data-name="${name}" data-favorite="${favorite}">
+          <div class="${cardClass}" data-color="${productData.color}" data-popular="${
+      productData.popular
+    }" data-brend="${productData.brend}" data-year="${productData.year}" data-price="${
+      productData.price
+    } "data-src="${productData.src}" data-details="${productData.details.toString()}" data-name="${
+      productData.name
+    }" data-favorite="${productData.favorite}">
             <ul class="card__container">
               <li class="card__availability">
                 <img src="${icon}" alt="availability icon">
@@ -79,24 +74,24 @@ export class ProductCard implements IProductCard {
               </li>
               <li class="card__image-block">
                 <a class="card__link" href="">
-                  <img class="card__image" src="${src} "alt="product image">
+                  <img class="card__image" src="${productData.src} "alt="product image">
                 </a>
               </li>
               <li class="card__position position">
               <ul class="position__stars">
-              ${this.createProductRating(rating)}
+              ${this.createProductRating(productData.rating)}
               </ul>
-                <p class="position__text">Reviews <span>(${rating})</span></p>
+                <p class="position__text">Reviews <span>(${productData.rating})</span></p>
               </li>
               <li class="card__main-info">
-                <h4 class="card__title">${name}</h4>
-                <p class="position__year">${year}</p>
+                <h4 class="card__title">${productData.name}</h4>
+                <p class="position__year">${productData.year}</p>
               </li>
-              <li class="card__description">${details.toString()}</li>
+              <li class="card__description">${productData.details.toString()}</li>
               <li class="card__purchase-info">
                 <div class="card__prices">
-                  <p class="card__price card__price_old">${oldPrice}</p>
-                  <p class="card__price">$${price}</p>
+                  <p class="card__price card__price_old">${productData.oldPrice}</p>
+                  <p class="card__price">$${productData.price}</p>
                 </div>
                 <div class="${basketClass}"></div>
               </li>
@@ -116,21 +111,8 @@ export class ProductCard implements IProductCard {
     }
 
     for (let i = INITIAL_STEP; i < this.counterVisibleCards; i++) {
-      const product = productCards[i];
-      const productCard = this.createСard(
-        product.name,
-        product.brend,
-        product.price,
-        product.oldPrice,
-        product.year,
-        product.rating,
-        product.amount,
-        product.src,
-        product.details,
-        product.color,
-        product.popular,
-        product.favorite
-      );
+      const productData = productCards[i];
+      const productCard = this.createСard(productData);
       section.innerHTML += productCard;
     }
   }
