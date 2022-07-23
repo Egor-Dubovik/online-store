@@ -9,6 +9,7 @@ import {
   MINIMUM_POCITION,
   MAXIMUM_POCITION,
   MINIMUM_PRICE,
+  MAX_VISIBLE_CARDS_AMOUNT,
   Numbers,
 } from '../../constants/numbers';
 import { launchRangeSlider } from '../range-slider';
@@ -213,7 +214,7 @@ export class App extends Filter {
         }
       }
 
-      this.counterVisibleCards = Numbers.sixteen;
+      this.counterVisibleCards = MAX_VISIBLE_CARDS_AMOUNT;
       this.displayCards(copyAllProductCards);
     };
 
