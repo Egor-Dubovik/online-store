@@ -9,8 +9,6 @@ const slidesToShow = SLIDES_AMOUNT;
 const slidesToScroll = SLIDES_AMOUNT;
 let position: number;
 
-window.addEventListener('resize', init);
-
 const init = (): void => {
   position = Numbers.zero;
   const slideWidth: number = track.clientWidth / slidesToShow;
@@ -47,3 +45,5 @@ const init = (): void => {
 };
 
 init();
+
+window.addEventListener('resize', init);

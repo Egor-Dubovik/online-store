@@ -24,3 +24,5 @@ export const PRICE_SLIDER_MARGIN = 1000;
 export const POSITION_SLIDER_MARGIN = 0.5;
 
 export const MAX_VISIBLE_CARDS_AMOUNT = 16;
+
+export const SLIDES_AMOUNT = 1;

@@ -1,5 +1,5 @@
 import noUiSlider from 'nouislider';
-import 'nouislider/dist/nouislider.css';
+
 import {
   MINIMUM_PRICE,
   MAXIMUM_PRICE,
