@@ -17,10 +17,8 @@ export const popapData = document.querySelector('.info-popap__data') as HTMLElem
 export const popapImage = document.querySelector('.info-popap__image') as HTMLElement;
 
 const app = new App(cardJson.laptops, cardJson.laptops);
-
 app.init(sortSelect, sectionCards);
 
-// Listeners -------------------------------------------------------------------
 document.addEventListener('click', app.eventHandling.bind(app));
 sortSelect.addEventListener('change', app.sortProductCard.bind(app, sortSelect, sectionCards));
 buttonShowMore.addEventListener('click', app.showMore.bind(app));

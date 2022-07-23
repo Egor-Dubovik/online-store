@@ -53,7 +53,7 @@ export class App extends Filter {
     navigationBlock.classList.remove('_hidden');
   }
 
-  eventHandling(event: Event) {
+  eventHandling(event: Event): void {
     const targetElement = event.target as HTMLElement;
 
     if (targetElement.closest('.header__search-button')) event.preventDefault();
@@ -71,7 +71,6 @@ export class App extends Filter {
       this.toggleInputSearch();
     }
 
-    // Infolist events processing
     if (targetElement.closest('.header-top__timetable-button')) {
       infoList.classList.toggle('_active');
     }
@@ -83,17 +82,15 @@ export class App extends Filter {
     ) {
       infoList.classList.remove('_active');
     }
-    // filtering
+
     if (targetElement.closest('.filters__button_apply')) {
       this.saveAndFilterData();
     }
 
-    // add card to basket ---------------------------------------------------
     if (targetElement.closest('.card__add-to-basket')) {
       const card = targetElement.closest('.card') as HTMLDivElement;
       const cardPrice = card.dataset.price as string;
 
-      // check empty rroduct card
       if (targetElement.closest('._empty')) {
         const emptyPopapData = `
         <p class="info-popap__data">Call us for check availability ;)</p>
@@ -142,7 +139,9 @@ export class App extends Filter {
         basketPrice.textContent = this.basket.price;
 
         this.basketAmount += Numbers.one;
-        basketAmount.forEach((amount) => (amount.textContent = `${this.basketAmount}`));
+        basketAmount.forEach(
+          (amount: Element): string => (amount.textContent = `${this.basketAmount}`)
+        );
       } else {
         const basketItems = document.querySelectorAll(
           '.basket-list__item'
@@ -152,7 +151,7 @@ export class App extends Filter {
         card.classList.remove('_active');
         targetElement.classList.remove('_active');
 
-        basketItems.forEach((item) => {
+        basketItems.forEach((item: HTMLElement): void => {
           if (item.dataset.name === card.dataset.name) {
             item.remove();
             card.classList.remove('_active');
@@ -162,7 +161,9 @@ export class App extends Filter {
             basketPrice.textContent = this.basket.price;
 
             this.basketAmount -= Numbers.one;
-            basketAmount.forEach((amount) => (amount.textContent = `${this.basketAmount}`));
+            basketAmount.forEach(
+              (amount: Element): string => (amount.textContent = `${this.basketAmount}`)
+            );
           }
         });
       }
@@ -170,26 +171,26 @@ export class App extends Filter {
     }
 
     if (targetElement.closest('.popap__button-close')) {
-      targetElement.closest('.popap')?.classList.remove('_active');
+      (targetElement.closest('.popap') as HTMLDivElement).classList.remove('_active');
     }
-    // clear
+
     if (targetElement.closest('.filters__button_clear')) this.clearFilters();
     if (targetElement.closest('.adjusting-view__button')) this.clearSettings();
   }
 
-  changeCardStatus(card: HTMLDivElement, status: boolean) {
+  changeCardStatus(card: HTMLDivElement, status: boolean): void {
     card.dataset.favorite = '' + status;
-    this.allProductCards.forEach((productCard) => {
+    this.allProductCards.forEach((productCard: IProductCardData): void => {
       if (card.dataset.name === productCard.name) productCard.favorite = status;
     });
   }
 
-  updatePopapData(data: string, img: string) {
+  updatePopapData(data: string, img: string): void {
     popapData.innerHTML = data;
     popapImage.innerHTML = `<img src="./assets/images/content-img/basket/${img}" alt="busket represent">`;
   }
 
-  searchProductCards() {
+  searchProductCards(): void {
     const searchCards = (): void => {
       const copyAllProductCards = [...this.allProductCards];
       let index = INITIAL_STEP;
@@ -222,13 +223,13 @@ export class App extends Filter {
 
   saveData(priceFilter: NodeListOf<HTMLElement>, positionFilter: NodeListOf<HTMLElement>): void {
     this.filters.brend = brendFilter.value;
-    this.filters.price.minimum = priceFilter[0].textContent;
-    this.filters.price.maximum = priceFilter[1].textContent;
-    this.filters.rating.minimum = positionFilter[0].textContent;
-    this.filters.rating.maximum = positionFilter[1].textContent;
+    this.filters.price.minimum = priceFilter[Numbers.zero].textContent;
+    this.filters.price.maximum = priceFilter[Numbers.one].textContent;
+    this.filters.rating.minimum = positionFilter[Numbers.zero].textContent;
+    this.filters.rating.maximum = positionFilter[Numbers.one].textContent;
     this.filters.popular = '' + popularFilter.checked;
 
-    colorFilter.forEach((color) => {
+    colorFilter.forEach((color: HTMLInputElement): void => {
       if (color.checked) {
         this.filters.color = color.value;
       } else {
@@ -250,11 +251,11 @@ export class App extends Filter {
     this.saveData(priceFilter, positionFilter);
   }
 
-  saveBasketData() {
+  saveBasketData(): void {
     let itemsName = '';
     const basketItems = Array.from(basketList.children) as HTMLLIElement[];
 
-    basketItems.forEach((item) => {
+    basketItems.forEach((item: HTMLLIElement): void => {
       if (item.dataset.name) itemsName += item.dataset.name;
     });
 
@@ -263,22 +264,21 @@ export class App extends Filter {
     storage.set('basket', JSON.stringify(this.basket));
   }
 
-  init(sortSelect: HTMLSelectElement, sectionCards: HTMLElement) {
+  init(sortSelect: HTMLSelectElement, sectionCards: HTMLElement): void {
     const filtersData = JSON.parse(storage.get('filters'));
     const basketsData: IBasket = JSON.parse(storage.get('basket'));
-    console.log(basketsData);
 
-    if (basketsData !== null) {
+    if (basketsData) {
       this.basket.price = basketsData.price;
       basketPrice.textContent = basketsData.price;
 
-      this.allProductCards.forEach((card) => {
+      this.allProductCards.forEach((card: IProductCardData): void => {
         if (basketsData.items.includes(card.name)) {
           this.basketAmount = +basketsData.amount;
           basketAmount[Numbers.zero].textContent = basketsData.amount;
           basketAmount[Numbers.one].textContent = basketsData.amount;
           card.favorite = true;
-          console.log(card);
+
           basketList.innerHTML += `
           <li class="basket-list__item" data-name="${card.name}">
             <p class="basket-list__item-amount"><span>1</span> x</p>
@@ -299,7 +299,7 @@ export class App extends Filter {
       });
     }
 
-    if (filtersData !== null) {
+    if (filtersData) {
       brendFilter.value = filtersData.brend;
       launchRangeSlider(
         +filtersData.price.minimum,
@@ -307,7 +307,7 @@ export class App extends Filter {
         +filtersData.rating.minimum,
         +filtersData.rating.maximum
       );
-      colorFilter.forEach((color) => {
+      colorFilter.forEach((color: HTMLInputElement): void => {
         if (color.value === filtersData.color) color.checked = true;
       });
       if (filtersData.popular === 'true') popularFilter.checked = true;
@@ -319,13 +319,13 @@ export class App extends Filter {
     this.saveAndFilterData();
   }
 
-  clearFilters() {
+  clearFilters(): void {
     brendFilter.value = 'all';
-    colorFilter.forEach((color) => {
+    colorFilter.forEach((color: HTMLInputElement): void => {
       if (color.checked) color.checked = false;
     });
 
-    rangeSliders.forEach((slider) => {
+    rangeSliders.forEach((slider: HTMLElement): void => {
       if (slider.closest('.filter__slider-range_price')) {
         slider.noUiSlider.set([0, 6500]);
       } else {
@@ -335,7 +335,7 @@ export class App extends Filter {
     this.saveAndFilterData();
   }
 
-  clearSettings() {
+  clearSettings(): void {
     localStorage.clear();
     this.clearFilters();
     location.reload();
