@@ -1,19 +1,19 @@
-import { sortSelect, sectionCards } from '../../index';
-import { FilteringType } from '../../types/card.types';
-import { IProductCardData, IFilters } from '../../interfaces/product.interface';
-import { Numbers } from '../../constants/numbers';
-import { Filtering } from '../../constants/strings';
-import { ProductCard } from './ProductCard';
-import { INITIAL_STEP, MAX_VISIBLE_CARDS_AMOUNT } from '../../constants/numbers';
-import { brendFilter, colorFilter, popularFilter } from './App';
-import { storage } from '../base/localStorage';
-import { BrendOptions } from '../../constants/strings';
+import { sortSelect, sectionCards } from '../pages/main/index';
+import { FilteringType } from '../types/card.types';
+import { IProductCardData, IFilters } from '../interfaces/product.interface';
+import { Numbers } from '../constants/numbers';
+import { Filtering } from '../constants/strings';
+import { ProductCard } from '../components/classes/ProductCard';
+import { INITIAL_STEP, MAX_VISIBLE_CARDS_AMOUNT } from '../constants/numbers';
+import { brendFilter, colorFilter, popularFilter } from '../components/classes/App';
+import { storage } from '../components/base/localStorage';
+import { BrendOptions } from '../constants/strings';
 import {
   MAXIMUM_PRICE,
   MINIMUM_POCITION,
   MAXIMUM_POCITION,
   MINIMUM_PRICE,
-} from '../../constants/numbers';
+} from '../constants/numbers';
 
 const rangeSliders = document.querySelectorAll('.filter__slider-range') as NodeListOf<HTMLElement>;
 

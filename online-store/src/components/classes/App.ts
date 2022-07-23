@@ -1,14 +1,15 @@
-import { Filter } from './filter';
+import { Filter } from '../../utils/filter';
 import { IProductCardData, IBasket, IFilters } from '../../interfaces/product.interface';
 import { removeClasses, toggleClasses } from '../base/baseFunctions';
 import { storage } from '../base/localStorage';
+import { Filtering } from '../../constants/strings';
+import { launchRangeSlider } from '../range-slider';
 import {
   INITIAL_STEP,
   SEARCH_TIME,
   MAX_VISIBLE_CARDS_AMOUNT,
   Numbers,
 } from '../../constants/numbers';
-import { launchRangeSlider } from '../range-slider';
 import {
   searchInput,
   basketList,
@@ -16,8 +17,7 @@ import {
   basketPopap,
   popapData,
   popapImage,
-} from '../../index';
-import { Filtering } from '../../constants/strings';
+} from '../../pages/main';
 
 const searchButton = document.querySelector('.header-search__button') as HTMLButtonElement;
 const basketPrice = document.querySelector('.header-basket__total-price span') as HTMLButtonElement;

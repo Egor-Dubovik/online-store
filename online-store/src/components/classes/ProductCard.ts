@@ -3,7 +3,7 @@ import { AvailabilityOptions } from '../../types/card.types';
 import { Numbers, INITIAL_STEP, MAX_VISIBLE_CARDS_AMOUNT } from '../../constants/numbers';
 import { SortingType } from '../../types/card.types';
 import { Sort } from '../../constants/strings';
-import { buttonShowMore, sectionCards } from '../../index';
+import { buttonShowMore, sectionCards } from '../../pages/main/index';
 
 export class ProductCard implements IProductCard {
   public counterVisibleCards: number;

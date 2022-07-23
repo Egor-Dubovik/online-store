@@ -1,8 +1,8 @@
-import './components/slider';
+import '../../components/slider';
 import 'nouislider/dist/nouislider.css';
-import '../scss/style.scss';
-import cardJson from '../data/products.json';
-import { App } from './components/classes/App';
+import '../../scss/style.scss';
+import cardJson from '../../data/products.json';
+import { App } from '../../components/classes/App';
 
 export const sectionCards = document.querySelector('.cards') as HTMLElement;
 export const sortSelect = document.querySelector('.sorting') as HTMLSelectElement;

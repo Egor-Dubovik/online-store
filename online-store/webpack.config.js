@@ -15,7 +15,7 @@ const babelOptions = (preset) => {
 const baseConfig = {
   mode: 'development',
   entry: {
-    index: path.resolve('@babel/polyfill', __dirname, './src/ts/index.ts'),
+    index: path.resolve('@babel/polyfill', __dirname, './src/pages/main/index.ts'),
   },
   output: {
     filename: 'script.[contenthash].js',
@@ -31,7 +31,7 @@ const baseConfig = {
   plugins: [
     new HtmlWebpackPlugin({
       inject: true,
-      template: path.resolve(__dirname, './src/index.html'),
+      template: path.resolve(__dirname, './src/pages/main/index.html'),
       filename: 'index.html',
       chunks: ['index'],
     }),
