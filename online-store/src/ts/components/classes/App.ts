@@ -21,7 +21,7 @@ import {
   popapData,
   popapImage,
 } from '../../index';
-import { Filtering } from '../../constants/strings';
+import { Filtering, BrendOptions } from '../../constants/strings';
 
 const searchButton = document.querySelector('.header-search__button') as HTMLButtonElement;
 const basketPrice = document.querySelector('.header-basket__total-price span') as HTMLButtonElement;
@@ -327,7 +327,7 @@ export class App extends Filter {
   }
 
   clearFilters(): void {
-    brendFilter.value = 'all';
+    brendFilter.value = BrendOptions.all;
     colorFilter.forEach((color: HTMLInputElement): void => {
       if (color.checked) color.checked = false;
     });

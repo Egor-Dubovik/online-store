@@ -1,6 +1,6 @@
-import { IProductCardData, IProductCard } from '../../interfaces/product.interface';
+import { IProductCardData, IProductCard, IСard } from '../../interfaces/product.interface';
 import { AvailabilityOptions } from '../../types/card.types';
-import { Numbers, INITIAL_STEP } from '../../constants/numbers';
+import { Numbers, INITIAL_STEP, MAX_VISIBLE_CARDS_AMOUNT } from '../../constants/numbers';
 import { SortingType } from '../../types/card.types';
 import { Sort } from '../../constants/strings';
 import { buttonShowMore, sectionCards } from '../../index';
@@ -13,7 +13,7 @@ export class ProductCard implements IProductCard {
   constructor(allProductCards: IProductCardData[], curentRenderCards: IProductCardData[]) {
     this.allProductCards = allProductCards;
     this.curentRenderCards = curentRenderCards;
-    this.counterVisibleCards = Numbers.sixteen;
+    this.counterVisibleCards = MAX_VISIBLE_CARDS_AMOUNT;
   }
 
   createProductRating(rating: number): string {
@@ -34,7 +34,7 @@ export class ProductCard implements IProductCard {
     let availabilityText = '<p class="position__text position__text_green">in stock</p>' as string;
     let availabilityIcon = './assets/images/svg/in-stock.svg' as string;
     let basketClass = 'card__add-to-basket _icon-basket';
-    if (amount == 0) {
+    if (amount == Numbers.zero) {
       availabilityText = '<p class="position__text position__text_red">check availability</p>';
       availabilityIcon = './assets/images/svg/check-availability.svg';
       basketClass = 'card__add-to-basket _empty _icon-basket';
@@ -43,7 +43,7 @@ export class ProductCard implements IProductCard {
     return { text: availabilityText, icon: availabilityIcon, basketClass: basketClass };
   }
 
-  createСard = (
+  createСard(
     name: string,
     brend: string,
     price: number,
@@ -56,16 +56,16 @@ export class ProductCard implements IProductCard {
     color: string[],
     popular: boolean,
     favorite: boolean
-  ): HTMLDivElement => {
+  ) {
     const { text, icon } = this.checkAvailability(amount);
     let { basketClass } = this.checkAvailability(amount);
     let cardClass: string;
 
+    cardClass = 'cards__card card';
+
     if (favorite) {
-      cardClass = 'cards__card card _active';
+      cardClass += ' _active';
       basketClass += ' _active';
-    } else {
-      cardClass = 'cards__card card';
     }
 
     oldPrice ? (oldPrice = '$' + oldPrice) : oldPrice;
@@ -102,7 +102,7 @@ export class ProductCard implements IProductCard {
               </li>
             </ul>
         </div>` as unknown) as HTMLDivElement;
-  };
+  }
 
   displayCards(productCards: IProductCardData[], section = sectionCards): void {
     section.innerHTML = '';
@@ -135,12 +135,12 @@ export class ProductCard implements IProductCard {
     }
   }
 
-  showMore() {
-    this.counterVisibleCards += Numbers.sixteen;
+  showMore(): void {
+    this.counterVisibleCards += MAX_VISIBLE_CARDS_AMOUNT;
     this.displayCards(this.curentRenderCards);
   }
 
-  sortProductCard(sortSelect: HTMLSelectElement, sectionCards: HTMLElement) {
+  sortProductCard(sortSelect: HTMLSelectElement, sectionCards: HTMLElement): void {
     const selectData = sortSelect.value.split(',');
     let sortProductCards: IProductCardData[];
     let sortingType: SortingType;

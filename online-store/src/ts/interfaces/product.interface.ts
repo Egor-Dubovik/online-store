@@ -19,7 +19,13 @@ export interface IProductCard {
   allProductCards: IProductCardData[];
   curentRenderCards: IProductCardData[];
   counterVisibleCards: number;
-  createСard: (
+  createСard: IСard;
+  displayCards: (productCards: IProductCardData[], sectionCards: HTMLElement) => void;
+  checkAvailability: (amount: number) => AvailabilityOptions;
+}
+
+export interface IСard {
+  (
     name: string,
     brend: string,
     price: number,
@@ -32,9 +38,7 @@ export interface IProductCard {
     color: string[],
     popular: boolean,
     favorite: boolean
-  ) => HTMLDivElement;
-  displayCards: (productCards: IProductCardData[], sectionCards: HTMLElement) => void;
-  checkAvailability: (amount: number) => AvailabilityOptions;
+  ): HTMLDivElement;
 }
 
 export interface IFilters {

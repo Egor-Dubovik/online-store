@@ -4,7 +4,7 @@ import { IProductCardData, IFilters } from '../../interfaces/product.interface';
 import { Numbers } from '../../constants/numbers';
 import { Filtering } from '../../constants/strings';
 import { ProductCard } from './ProductCard';
-import { INITIAL_STEP } from '../../constants/numbers';
+import { INITIAL_STEP, MAX_VISIBLE_CARDS_AMOUNT } from '../../constants/numbers';
 
 export class Filter extends ProductCard {
   filters: IFilters;
@@ -34,7 +34,7 @@ export class Filter extends ProductCard {
     priceFilter: NodeListOf<Element>,
     positionFilter: NodeListOf<Element>
   ) {
-    this.counterVisibleCards = Numbers.sixteen;
+    this.counterVisibleCards = MAX_VISIBLE_CARDS_AMOUNT;
 
     const copyAllProductCards = [...this.allProductCards];
     let filteringProductCards: IProductCardData[];
@@ -68,7 +68,7 @@ export class Filter extends ProductCard {
       );
     }
 
-    colorFilter.forEach((color) => {
+    colorFilter.forEach((color: HTMLInputElement): void => {
       if (color.checked)
         filteringProductCards = this.filterByColor(color.value, filteringProductCards);
     });
