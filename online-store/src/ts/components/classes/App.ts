@@ -42,7 +42,7 @@ export class App extends Filter {
 
   constructor(allProductCards: IProductCardData[], curentRenderCards: IProductCardData[]) {
     super(allProductCards, curentRenderCards);
-    this.basketAmount = 0;
+    this.basketAmount = Numbers.zero;
     this.basket = {
       price: '0',
       amount: '0',
@@ -201,7 +201,7 @@ export class App extends Filter {
 
   searchProductCards(): void {
     const searchCards = (): void => {
-      const copyAllProductCards = [...this.allProductCards];
+      const copyAllProductCards = [...this.curentRenderCards];
       let index = INITIAL_STEP;
 
       while (index < copyAllProductCards.length) {

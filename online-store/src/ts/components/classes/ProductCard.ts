@@ -46,9 +46,8 @@ export class ProductCard implements IProductCard {
   createСard(productData: IProductCardData): HTMLDivElement {
     const { text, icon } = this.checkAvailability(productData.amount);
     let { basketClass } = this.checkAvailability(productData.amount);
-    let cardClass: string;
-
-    cardClass = 'cards__card card';
+    let cardClass = 'cards__card card';
+    let oldPrice: string | number;
 
     if (productData.favorite) {
       cardClass += ' _active';
@@ -56,8 +55,8 @@ export class ProductCard implements IProductCard {
     }
 
     productData.oldPrice
-      ? (productData.oldPrice = '$' + productData.oldPrice)
-      : productData.oldPrice;
+      ? (oldPrice = '$' + productData.oldPrice)
+      : (oldPrice = productData.oldPrice);
 
     return (`
           <div class="${cardClass}" data-color="${productData.color}" data-popular="${
@@ -90,7 +89,7 @@ export class ProductCard implements IProductCard {
               <li class="card__description">${productData.details.toString()}</li>
               <li class="card__purchase-info">
                 <div class="card__prices">
-                  <p class="card__price card__price_old">${productData.oldPrice}</p>
+                  <p class="card__price card__price_old">${oldPrice}</p>
                   <p class="card__price">$${productData.price}</p>
                 </div>
                 <div class="${basketClass}"></div>
