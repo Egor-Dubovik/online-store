@@ -9,7 +9,7 @@ export interface IProductCardData {
   rating: number;
   amount: number;
   src: string;
-  ditails: string[];
+  details: string[];
   color: string[];
   popular: boolean;
   favorite: boolean;
@@ -28,7 +28,7 @@ export interface IProductCard {
     rating: number,
     amount: number,
     src: string,
-    ditails: string[],
+    details: string[],
     color: string[],
     popular: boolean,
     favorite: boolean

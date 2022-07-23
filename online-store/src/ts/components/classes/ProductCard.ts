@@ -52,7 +52,7 @@ export class ProductCard implements IProductCard {
     rating: number,
     amount: number,
     src: string,
-    ditails: string[],
+    details: string[],
     color: string[],
     popular: boolean,
     favorite: boolean
@@ -71,7 +71,7 @@ export class ProductCard implements IProductCard {
     oldPrice ? (oldPrice = '$' + oldPrice) : oldPrice;
 
     return (`
-          <div class="${cardClass}" data-color="${color}" data-popular="${popular}" data-brend="${brend}" data-year="${year}" data-price="${price} "data-src="${src}" data-ditails="${ditails.toString()}" data-name="${name}" data-favorite="${favorite}">
+          <div class="${cardClass}" data-color="${color}" data-popular="${popular}" data-brend="${brend}" data-year="${year}" data-price="${price} "data-src="${src}" data-details="${details.toString()}" data-name="${name}" data-favorite="${favorite}">
             <ul class="card__container">
               <li class="card__availability">
                 <img src="${icon}" alt="availability icon">
@@ -92,7 +92,7 @@ export class ProductCard implements IProductCard {
                 <h4 class="card__title">${name}</h4>
                 <p class="position__year">${year}</p>
               </li>
-              <li class="card__description">${ditails.toString()}</li>
+              <li class="card__description">${details.toString()}</li>
               <li class="card__purchase-info">
                 <div class="card__prices">
                   <p class="card__price card__price_old">${oldPrice}</p>
@@ -126,7 +126,7 @@ export class ProductCard implements IProductCard {
         product.rating,
         product.amount,
         product.src,
-        product.ditails,
+        product.details,
         product.color,
         product.popular,
         product.favorite

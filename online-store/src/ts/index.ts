@@ -1,5 +1,5 @@
 import './components/slider';
-import cardJson from '../assets/products.json';
+import cardJson from '../data/products.json';
 import { App } from './components/classes/App';
 
 export const sectionCards = document.querySelector('.cards') as HTMLElement;

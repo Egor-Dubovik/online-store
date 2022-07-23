@@ -127,7 +127,7 @@ export class App extends Filter {
           <div class="basket-list__item-image-block">
             <img src="${card.dataset.src}" class="basket-list__item-image">
           </div>
-          <p class="basket-list__item-description">${card.dataset.ditails}</p>
+          <p class="basket-list__item-description">${card.dataset.details}</p>
           <div class="basket-list__item-buttons">
             <button class="basket-list__itebasket-list__item-button_remove">
               <img src="./assets/images/svg/mycart-remove.svg" alt="icon remove carts item">
@@ -285,7 +285,7 @@ export class App extends Filter {
             <div class="basket-list__item-image-block">
               <img src="${card.src}" class="basket-list__item-image">
             </div>
-            <p class="basket-list__item-description">${card.ditails}</p>
+            <p class="basket-list__item-description">${card.details}</p>
             <div class="basket-list__item-buttons">
               <button class="basket-list__itebasket-list__item-button_remove">
                 <img src="./assets/images/svg/mycart-remove.svg" alt="icon remove carts item">
