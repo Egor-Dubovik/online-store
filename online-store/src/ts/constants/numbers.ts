@@ -20,5 +20,7 @@ export const MINIMUM_PRICE = 0;
 export const MAXIMUM_PRICE = 6500;
 export const MINIMUM_POCITION = 0;
 export const MAXIMUM_POCITION = 5;
+export const PRICE_SLIDER_MARGIN = 1000;
+export const POSITION_SLIDER_MARGIN = 0.5;
 
 export const MAX_VISIBLE_CARDS_AMOUNT = 16;
