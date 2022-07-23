@@ -1,5 +1,5 @@
 import { Filter } from './filter';
-import { IProductCardData, IBasket } from '../../interfaces/product.interface';
+import { IProductCardData, IBasket, IFilters } from '../../interfaces/product.interface';
 import { removeClasses, toggleClasses } from '../base/baseFunctions';
 import { storage } from '../base/localStorage';
 import {
@@ -232,18 +232,16 @@ export class App extends Filter {
 
   saveData(priceFilter: NodeListOf<HTMLElement>, positionFilter: NodeListOf<HTMLElement>): void {
     this.filters.brend = brendFilter.value;
-    this.filters.price.minimum = priceFilter[Numbers.zero].textContent;
-    this.filters.price.maximum = priceFilter[Numbers.one].textContent;
-    this.filters.rating.minimum = positionFilter[Numbers.zero].textContent;
-    this.filters.rating.maximum = positionFilter[Numbers.one].textContent;
+    this.filters.price.minimum = priceFilter[Numbers.zero].textContent as string;
+    this.filters.price.maximum = priceFilter[Numbers.one].textContent as string;
+    this.filters.rating.minimum = positionFilter[Numbers.zero].textContent as string;
+    this.filters.rating.maximum = positionFilter[Numbers.one].textContent as string;
+
     this.filters.popular = '' + popularFilter.checked;
 
     colorFilter.forEach((color: HTMLInputElement): void => {
-      if (color.checked) {
-        this.filters.color = color.value;
-      } else {
-        this.filters.color = '';
-      }
+      this.filters.color = '';
+      if (color.checked) this.filters.color = color.value;
     });
 
     storage.set('filters', JSON.stringify(this.filters));
@@ -274,7 +272,7 @@ export class App extends Filter {
   }
 
   init(sortSelect: HTMLSelectElement, sectionCards: HTMLElement): void {
-    const filtersData = JSON.parse(storage.get('filters'));
+    const filtersData: IFilters = JSON.parse(storage.get('filters'));
     const basketsData: IBasket = JSON.parse(storage.get('basket'));
 
     if (basketsData) {

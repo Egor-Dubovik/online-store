@@ -41,12 +41,12 @@ export interface IFilters {
   brend: string;
   color: string;
   price: {
-    minimum: string | null;
-    maximum: string | null;
+    minimum: string;
+    maximum: string;
   };
   rating: {
-    minimum: string | null;
-    maximum: string | null;
+    minimum: string;
+    maximum: string;
   };
   popular: string;
   sort: string;
