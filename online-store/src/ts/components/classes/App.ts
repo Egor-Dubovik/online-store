@@ -2,7 +2,15 @@ import { Filter } from './filter';
 import { IProductCardData, IBasket } from '../../interfaces/product.interface';
 import { removeClasses, toggleClasses } from '../base/baseFunctions';
 import { storage } from '../base/localStorage';
-import { INITIAL_STEP, SEARCH_TIME, Numbers } from '../../constants/numbers';
+import {
+  INITIAL_STEP,
+  SEARCH_TIME,
+  MAXIMUM_PRICE,
+  MINIMUM_POCITION,
+  MAXIMUM_POCITION,
+  MINIMUM_PRICE,
+  Numbers,
+} from '../../constants/numbers';
 import { launchRangeSlider } from '../range-slider';
 import {
   searchInput,
@@ -327,9 +335,9 @@ export class App extends Filter {
 
     rangeSliders.forEach((slider: HTMLElement): void => {
       if (slider.closest('.filter__slider-range_price')) {
-        slider.noUiSlider.set([0, 6500]);
+        slider.noUiSlider.set([MINIMUM_PRICE, MAXIMUM_PRICE]);
       } else {
-        slider.noUiSlider.set([0, 5]);
+        slider.noUiSlider.set([MINIMUM_POCITION, MAXIMUM_POCITION]);
       }
     });
     this.saveAndFilterData();

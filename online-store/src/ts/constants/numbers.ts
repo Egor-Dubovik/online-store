@@ -16,3 +16,8 @@ export enum Numbers {
 
 export const INITIAL_STEP = 0;
 export const SEARCH_TIME = 400;
+
+export const MINIMUM_PRICE = 0;
+export const MAXIMUM_PRICE = 6500;
+export const MINIMUM_POCITION = 0;
+export const MAXIMUM_POCITION = 5;
