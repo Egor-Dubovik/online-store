@@ -34,7 +34,7 @@ export class ProductCard implements IProductCard {
     let availabilityText = '<p class="position__text position__text_green">in stock</p>' as string;
     let availabilityIcon = './assets/images/svg/in-stock.svg' as string;
     let basketClass = 'card__add-to-basket _icon-basket';
-    if (amount == Numbers.zero) {
+    if (amount === Numbers.zero) {
       availabilityText = '<p class="position__text position__text_red">check availability</p>';
       availabilityIcon = './assets/images/svg/check-availability.svg';
       basketClass = 'card__add-to-basket _empty _icon-basket';

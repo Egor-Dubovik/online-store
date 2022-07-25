@@ -1,7 +1,7 @@
 import { Numbers, SLIDES_AMOUNT } from '../constants/numbers';
 
 const track = document.querySelector('.slider__track') as HTMLElement;
-const buttonPrev = document.querySelector('.slider__button_previous') as HTMLButtonElement;
+const buttonPrevious = document.querySelector('.slider__button_previous') as HTMLButtonElement;
 const buttonNext = document.querySelector('.slider__button_next') as HTMLButtonElement;
 const slides = document.querySelectorAll('.slider__slide') as NodeListOf<HTMLElement>;
 const slidesAmount: number = slides.length;
@@ -23,14 +23,14 @@ const init = (): void => {
   };
 
   buttonNext.onclick = (): void => {
-    const slidesLeft: number =
+    const slidesRight: number =
       slidesAmount - (Math.abs(position) + slidesToShow * slideWidth) / slideWidth;
-    position -= slidesLeft >= slidesToScroll ? movePosition : slidesLeft * slideWidth;
+    position -= slidesRight >= slidesToScroll ? movePosition : slidesRight * slideWidth;
     setPosition();
     checkButtons();
   };
 
-  buttonPrev.onclick = (): void => {
+  buttonPrevious.onclick = (): void => {
     const slidesLeft: number = Math.abs(position) / slideWidth;
     position += slidesLeft >= slidesToScroll ? movePosition : slidesLeft * slideWidth;
     setPosition();
@@ -39,7 +39,7 @@ const init = (): void => {
 
   const checkButtons = (): void => {
     buttonNext.disabled = position <= -(slidesAmount - slidesToShow) * slideWidth;
-    buttonPrev.disabled = position === Numbers.zero;
+    buttonPrevious.disabled = position === Numbers.zero;
   };
   checkButtons();
 };
