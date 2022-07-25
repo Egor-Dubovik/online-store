@@ -101,9 +101,10 @@ export class Filter extends ProductCard {
 
       if (card[`${filterOption}`] > +maximumValue || card[`${filterOption}`] < +minimumValue) {
         productCards.splice(index, Numbers.one)[Numbers.zero];
-      } else {
-        ++index;
+        continue;
       }
+
+      ++index;
     }
 
     return productCards;
@@ -121,9 +122,9 @@ export class Filter extends ProductCard {
 
       if (card[`${filterOption}`] !== value) {
         productCards.splice(index, Numbers.one)[Numbers.zero];
-      } else {
-        ++index;
+        continue;
       }
+      ++index;
     }
 
     return productCards;
@@ -137,9 +138,9 @@ export class Filter extends ProductCard {
 
       if (!card.color.join(',').includes(color)) {
         productCards.splice(index, Numbers.one)[Numbers.zero];
-      } else {
-        ++index;
+        continue;
       }
+      ++index;
     }
 
     return productCards;
