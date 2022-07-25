@@ -7,7 +7,6 @@ import {
   MAXIMUM_POCITION,
   PRICE_SLIDER_MARGIN,
   POSITION_SLIDER_MARGIN,
-  Numbers,
 } from '../constants/numbers';
 
 export const launchRangeSlider = (
@@ -27,9 +26,7 @@ export const launchRangeSlider = (
         connect: true,
         margin: PRICE_SLIDER_MARGIN,
         tooltips: {
-          to: (numericValue) => {
-            return numericValue.toFixed(Numbers.zero);
-          },
+          to: (numericValue) => numericValue.toFixed(),
         },
         range: {
           min: MINIMUM_PRICE,
@@ -44,9 +41,7 @@ export const launchRangeSlider = (
         connect: true,
         margin: POSITION_SLIDER_MARGIN,
         tooltips: {
-          to: (numericValue) => {
-            return numericValue.toFixed(Numbers.zero);
-          },
+          to: (numericValue) => numericValue.toFixed(),
         },
         range: {
           min: MINIMUM_POCITION,
