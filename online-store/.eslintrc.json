@@ -13,6 +13,7 @@
   },
   "rules": {
     "@typescript-eslint/no-var-requires": 0,
+    "@typescript-eslint/no-explicit-any": "on",
     "no-debugger": "off",
     "no-console": 0,
     "class-methods-use-this": "off",
